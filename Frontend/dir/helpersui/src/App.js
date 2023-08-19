@@ -1,5 +1,13 @@
+import Dashboard from "./DonateLink";
+import Header from "./Header";
+import RegistrationForm from "./Registration";
+
 const App = ()=>{
 
-    return <h1>something to test</h1>
+    return <>
+    <Header/>
+    <Dashboard/>
+    <RegistrationForm/>
+    </>
 }
 export default App;

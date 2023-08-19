@@ -1,28 +1,32 @@
 import React from 'react';
 import { Navbar, Nav, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Make sure you've included the Bootstrap CSS
-
+import './App.css'
 const Header = () => {
-  const isLoggedIn = true; // You can change this based on your authentication state
+  const isLoggedIn = false; 
+  
 
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Navbar.Brand href="#home">
         <img
-          src="your-logo-url.png" // Replace with your logo URL
-          width="30"
-          height="30"
+          src="/image.png" // Replace with your logo URL
+          width="91"
+          height="44"
           className="d-inline-block align-top"
-          alt="Logo"
+         
         />
       </Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link href="#home">Home</Nav.Link>
-          <Nav.Link href="#about">About</Nav.Link>
-          <Nav.Link href="#services">Services</Nav.Link>
-          {/* Add more Nav.Link items as needed */}
+          <Nav.Link href="#ADLogin">Admin Login</Nav.Link>
+          <Nav.Link href="#about">Home</Nav.Link>
+          <Nav.Link href="#Helper">Be A Helper</Nav.Link>
+          <Nav.Link href="#Stories">Read Sucess Stories</Nav.Link>
+          <Nav.Link href="#Contact">Contact Us</Nav.Link>
+          <Nav.Link href="#Scope">Our Scope</Nav.Link>
+          
         </Nav>
         <Nav>
           {isLoggedIn ? (
@@ -34,7 +38,7 @@ const Header = () => {
               Login
             </Button>
           )}
-          <Button variant="primary">Donate Now</Button>
+          <Button className='button'>Donate Now</Button>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
