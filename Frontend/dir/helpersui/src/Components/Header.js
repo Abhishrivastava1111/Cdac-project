@@ -15,11 +15,12 @@ const Header = () => {
           height="44"
           className="d-inline-block align-top"
          
+         
         />
       </Navbar.Brand>
       
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto">
+        <Nav className="mr-auto"style={{ width: '600px',marginLeft:'100px', justifyContent: 'space-evenly' }} >
           <Nav.Link href="#ADLogin">Admin Login</Nav.Link>
           <Nav.Link href="#about">Home</Nav.Link>
           <Nav.Link href="#Helper">Be A Helper</Nav.Link>
@@ -28,7 +29,7 @@ const Header = () => {
           <Nav.Link href="#Scope">Our Scope</Nav.Link>
           
         </Nav>
-        <Nav>
+        <Nav style={{marginLeft:'300px'}}>
           {isLoggedIn ? (
             <Button variant="outline-light" className="mr-2">
               Logout
@@ -38,7 +39,10 @@ const Header = () => {
               Login
             </Button>
           )}
-          <Button className='button'>Donate Now</Button>
+          <Button style={{ color:'black',
+           height: '40px',
+           width: '290px',
+           backgroundColor: 'yellow'}}>Donate Now</Button>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

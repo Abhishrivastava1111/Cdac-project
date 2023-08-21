@@ -1,4 +1,6 @@
-import '../node_modules/bootstrap/dist/css/bootstrap.css';
+
+// import '../dir/helpersui/node_modules/bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './common.css';
 
 function Donar()

@@ -43,9 +43,17 @@ namespace Helpers_planet.Controllers
         }
 
         // POST api/values
-        public void Post(user obj)
+        public void Post(dynamic obj)
         {
-             cdac_FinalEntities2.users.Add(obj);
+            user tempObj = new user();
+            tempObj.name = obj.firstName + " " + obj.lastName;
+            tempObj.email   = obj.email;
+            tempObj.address = obj.address;  
+            tempObj.mobile = obj.mobileNumber;    
+            tempObj.pan = obj.Pan;
+               tempObj.password = obj.password;
+           
+             cdac_FinalEntities2.users.Add(tempObj);
             cdac_FinalEntities2.SaveChanges();
             
         }

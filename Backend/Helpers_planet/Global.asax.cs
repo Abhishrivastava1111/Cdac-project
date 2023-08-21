@@ -11,10 +11,11 @@ namespace Helpers_planet
 {
     public class WebApiApplication : System.Web.HttpApplication
     {
+
         protected void Application_Start()
         {
             HttpConfiguration config = GlobalConfiguration.Configuration;
-
+            
             config.Formatters.JsonFormatter
                         .SerializerSettings
                         .ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;

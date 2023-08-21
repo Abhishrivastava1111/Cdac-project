@@ -240,7 +240,8 @@
     border-radius: 5px;
 }
 .registration-form {
-    max-width: 400px;
+    margin-top: 200px;
+    max-width: 700px;
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ccc;
@@ -292,5 +293,9 @@
     
     a:hover {
     text-decoration: underline;
+    }
+
+    .redlink{
+        color: green;
     }
     
