@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import {useNavigate} from 'react-router-dom'
+import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 import './common.css';
 import axios from 'axios'
+
 import { ToastContainer, toast } from 'react-toastify';
 
 const RegistrationForm = () => {
-    const nevigate= useNavigate();
+    const nevigate= useHistory();
 
 const [formData, setFormData] = useState({
 firstName: '',
@@ -27,7 +28,7 @@ setFormData((prevData) => ({
 };
 
 const login=()=>{
-    nevigate('/login')
+    nevigate.push('/login')
 }
 
 const handleSubmit = async (e) => {

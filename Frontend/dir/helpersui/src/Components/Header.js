@@ -1,16 +1,24 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 import { Navbar, Nav, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Make sure you've included the Bootstrap CSS
 import './App.css'
 const Header = () => {
-  const isLoggedIn = false; 
-  
+  const nevigate = useHistory();
+ var isLoggedIn =false
+ const loginStatus = JSON.parse(sessionStorage.getItem('credential'));
+  if(loginStatus){
+    isLoggedIn = true; 
+  }
+  const RedirectToLogin=()=>{
+    nevigate.push('/login')
+  }
 
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Navbar.Brand href="#home">
         <img
-          src="/image.png" // Replace with your logo URL
+          src="/image.png" 
           width="91"
           height="44"
           className="d-inline-block align-top"
@@ -35,7 +43,9 @@ const Header = () => {
               Logout
             </Button>
           ) : (
-            <Button variant="outline-light" className="mr-2">
+            <Button variant="outline-light" className="mr-2" onClick={()=>{
+              RedirectToLogin();
+            }}>
               Login
             </Button>
           )}

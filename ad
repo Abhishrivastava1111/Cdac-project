@@ -1,0 +1,141 @@
+[33mcommit e18d6168ac2357957d2e19a372d449df3a623222[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: 64350_Abhi <abhishrivastava2407@gmail.com>
+Date:   Tue Aug 22 03:31:47 2023 +0530
+
+    Edited the login page + applied login functionality on backend side
+
+[33mcommit 0f972c19c0eae0b469d49e0a4beee3f8d5a45bd0[m
+Author: shubhamgujar3600 <shubhamgujar3600@gmail.com>
+Date:   Sat Aug 19 22:53:20 2023 +0530
+
+    for checking the working
+
+[33mcommit 347ffd5370e4826971f0ff44c70d0a04fab092d6[m
+Author: 64350_Abhi <abhishrivastava2407@gmail.com>
+Date:   Sat Aug 19 22:38:40 2023 +0530
+
+    Removed unnecessary clutter
+
+[33mcommit 4e33c29b9aacb39a8251ecf8a716ccf17a8daee3[m
+Author: 64350_Abhi <abhishrivastava2407@gmail.com>
+Date:   Sat Aug 19 13:11:56 2023 +0530
+
+    the first commit - 1.Backend v1, 2.Frontend skeleton added
+
+[33mcommit 469d642ba0aad14122053380146ced2639c51494[m
+Author: 64350_Abhi <abhishrivastava2407@gmail.com>
+Date:   Sat Aug 19 13:00:27 2023 +0530
+
+    some changes done
+
+[33mcommit d621199fde777848df6fc46cdbc12203c2a7c47e[m
+Merge: efa7203 28c895f
+Author: Abhi Shrivastava <129303764+Abhishrivastava1111@users.noreply.github.com>
+Date:   Wed Jun 21 00:53:57 2023 +0530
+
+    Merge pull request #3 from Abhishrivastava1111/abhi
+    
+    Abhi
+
+[33mcommit 28c895f5000f82aea290fafbfa9f857c8f21378f[m[33m ([m[1;31morigin/abhi[m[33m)[m
+Author: Abhi Shrivastava <abhishrivastava2407@gmail.com>
+Date:   Wed Jun 21 00:50:53 2023 +0530
+
+    added react facicon
+
+[33mcommit f138e3907b9e2710741a17dd04727f5b441f26f0[m
+Author: Abhi Shrivastava <abhishrivastava2407@gmail.com>
+Date:   Wed Jun 21 00:13:39 2023 +0530
+
+    sample
+
+[33mcommit efa720395e9de45ec7f96da3f901583058c1612e[m
+Author: Abhi Shrivastava <abhishrivastava2407@gmail.com>
+Date:   Wed Jun 21 00:10:52 2023 +0530
+
+    deleted unneccessary files
+
+[33mcommit 82702eb84e9bea5d88710becda81a269f2702c64[m
+Author: Abhi Shrivastava <abhishrivastava2407@gmail.com>
+Date:   Thu May 25 17:50:20 2023 +0530
+
+    deleted unnecessary items
+
+[33mcommit 083a0523049d021f2b593fe04e32c230510563b7[m
+Author: Abhi Shrivastava <abhishrivastava2407@gmail.com>
+Date:   Thu May 25 17:47:28 2023 +0530
+
+    third one
+
+[33mcommit 2e5c70b18b49bc2c7320162ea8e49b3fb4dca6a8[m
+Author: Abhi Shrivastava <abhishrivastava2407@gmail.com>
+Date:   Thu May 25 17:03:36 2023 +0530
+
+    the new version
+
+[33mcommit 4c4d9f543e99019aa769c6d7325ea54c24661e32[m
+Merge: c78d43e 4b9ea00
+Author: Abhi Shrivastava <abhishrivastava2407@gmail.com>
+Date:   Thu May 25 16:42:46 2023 +0530
+
+    Merge remote-tracking branch 'origin/b_vaibhav'
+
+[33mcommit 4b9ea00d04652d2b34092743d669a320dfd00a02[m[33m ([m[1;31morigin/b_vaibhav[m[33m)[m
+Author: VaibhavIsAvailiable <vaibhavkale5857@gmail.com>
+Date:   Thu May 25 16:35:11 2023 +0530
+
+    second try
+
+[33mcommit 07113dae89325f22f89a708597f575a6cafb3ec4[m
+Author: VaibhavIsAvailiable <vaibhavkale5857@gmail.com>
+Date:   Thu May 25 16:32:12 2023 +0530
+
+    vaibhav has added it
+
+[33mcommit c78d43eca7aa260874a05065fbc734e7d9cec512[m
+Merge: 3a89261 5a9bbd2
+Author: Abhi Shrivastava <129303764+Abhishrivastava1111@users.noreply.github.com>
+Date:   Thu May 25 16:28:10 2023 +0530
+
+    Merge pull request #2 from Abhishrivastava1111/b_abhi
+    
+    B abhi
+
+[33mcommit 3a89261a36ad5d863851c24691bb9381bb9f4a70[m
+Author: VaibhavIsAvailiable <vaibhavkale5857@gmail.com>
+Date:   Thu May 25 16:19:39 2023 +0530
+
+    sdfghj
+
+[33mcommit 5a9bbd2f2b679683f19d5cb943a52c3686316e10[m
+Merge: 202173c 4f51b92
+Author: Abhi Shrivastava <129303764+Abhishrivastava1111@users.noreply.github.com>
+Date:   Thu May 25 16:16:26 2023 +0530
+
+    Merge pull request #1 from Abhishrivastava1111/main
+    
+    prime nos added
+
+[33mcommit 4f51b92f2a22710aa6bed325e3cfdc3d1f243b9a[m
+Author: Abhi Shrivastava <abhishrivastava2407@gmail.com>
+Date:   Thu May 25 16:10:38 2023 +0530
+
+    prime nos added
+
+[33mcommit 202173c146640775cf6764e5f481a8178cc6a410[m
+Author: Abhi Shrivastava <abhishrivastava2407@gmail.com>
+Date:   Thu May 25 15:48:56 2023 +0530
+
+    Abhi has made
+
+[33mcommit 924f7d286e0e3fc46f38844d3a2bc71039ce0305[m
+Author: shubhamgujar3600 <134493643+shubhamgujar3600@users.noreply.github.com>
+Date:   Thu May 25 15:00:52 2023 +0530
+
+    Add files via upload
+
+[33mcommit 7a7cf6064755e3bf7738d858017bf6fb4b6b6d9a[m
+Author: Abhishrivastava1111 <129303764+Abhishrivastava1111@users.noreply.github.com>
+Date:   Thu May 25 14:37:55 2023 +0530
+
+    Initial commit
