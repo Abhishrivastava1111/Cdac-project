@@ -5,6 +5,7 @@
     import LoginForm from './LoginForm';
 import RegistrationForm from './Registration';
 import ProtectedRoute from './ProtectedRoute';
+import Viewcampaign from './volunter/Viewcampaign';
     // import './common.css'
 
 
@@ -18,7 +19,9 @@ import ProtectedRoute from './ProtectedRoute';
                             
                         <Route exact path="/login" 
                                 component={LoginForm}/>
-                                <ProtectedRoute exact path="/register" 
+                       <ProtectedRoute exact path="/ViewCampaign"
+                        component={Viewcampaign}/>
+                                    <ProtectedRoute exact path="/register" 
                             component={RegistrationForm}/>
                         </Switch>
                         

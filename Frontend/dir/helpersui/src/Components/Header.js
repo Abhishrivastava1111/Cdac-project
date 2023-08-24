@@ -1,19 +1,37 @@
-import React from 'react';
+import {React, useEffect, useState} from 'react';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 import { Navbar, Nav, Button } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Make sure you've included the Bootstrap CSS
+import 'bootstrap/dist/css/bootstrap.min.css'; 
 import './App.css'
+
+
 const Header = () => {
   const nevigate = useHistory();
- var isLoggedIn =false
- const loginStatus = JSON.parse(sessionStorage.getItem('credential'));
-  if(loginStatus){
-    isLoggedIn = true; 
-  }
-  const RedirectToLogin=()=>{
-    nevigate.push('/login')
-  }
+  var [isLoggedIn, setIsLoggedin] = useState(false)
+  const loginStatus = JSON.parse(sessionStorage.getItem('credential'));
+  console.log(loginStatus)
 
+  
+  const RedirectToLogin=()=>{
+    if(loginStatus)
+    setIsLoggedin(true)
+    nevigate.push({
+      pathname: '/login',
+      state: { isLoggedIn: false  }
+    });
+  }
+ 
+  useEffect(()=>{
+    
+    if(loginStatus){
+       setIsLoggedin(true) 
+    } 
+  },[isLoggedIn])
+
+  const logout =()=>{
+    sessionStorage.removeItem('credential')
+    setIsLoggedin(false)
+  }
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Navbar.Brand href="#home">
@@ -39,12 +57,17 @@ const Header = () => {
         </Nav>
         <Nav style={{marginLeft:'300px'}}>
           {isLoggedIn ? (
-            <Button variant="outline-light" className="mr-2">
+            <Button variant="outline-light" className="mr-2" 
+            onClick={()=>{
+              logout()
+              setIsLoggedin(false)
+            }}>
               Logout
             </Button>
           ) : (
             <Button variant="outline-light" className="mr-2" onClick={()=>{
               RedirectToLogin();
+              
             }}>
               Login
             </Button>

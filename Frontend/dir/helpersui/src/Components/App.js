@@ -7,10 +7,12 @@ import 'react-toastify/dist/ReactToastify.css'
 import RegistrationForm from "./Registration";
 import { BrowserRouter } from "react-router-dom";
 import Landing from "./Landing";
+import Viewcampaign from "./volunter/Viewcampaign";
 
 const App = ()=>{
 
     return <BrowserRouter>
+    
    <Landing/>
     </BrowserRouter>
 }

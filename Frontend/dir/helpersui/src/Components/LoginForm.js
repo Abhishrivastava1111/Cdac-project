@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import './common.css'; 
 import axios from 'axios';
+import { useAuth } from './Auth';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 
 
 const LoginForm = () => {
   const history = useHistory()
+  const { setIsLoggedIn } = useAuth();
+  
+
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -27,7 +31,7 @@ const LoginForm = () => {
     
     const credentials = { // Move this inside the handleSubmit function
       email: formData.email, // Use formData.email
-      password: formData.password,
+      password: formData.password
     };
 
     // Send POST request
@@ -36,8 +40,15 @@ const LoginForm = () => {
         // Handle success
         console.log('Login successful:', response.data);
         const loginCredentials = JSON.stringify(credentials)
+        
         window.sessionStorage.setItem('credential',loginCredentials)
+        setIsLoggedIn(true);
+        history.push({
+          pathname: '/Viewcampaign',
+          state: { isLoggedIn: true }
+        });
         // You might want to save the token or user info from the response
+
         
       })
       .catch(error => {
@@ -46,7 +57,7 @@ const LoginForm = () => {
       });
 
     // Reset the form after submission
-    setFormData({
+   const setFormData =()=>({
       email: '',
       password: '',
     });
