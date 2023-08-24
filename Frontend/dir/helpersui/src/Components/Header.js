@@ -2,7 +2,7 @@ import {React, useEffect, useState} from 'react';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 import { Navbar, Nav, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
-import './App.css'
+import './common.css';
 
 
 const Header = () => {
@@ -49,7 +49,7 @@ const Header = () => {
         <Nav className="mr-auto"style={{ width: '600px',marginLeft:'100px', justifyContent: 'space-evenly' }} >
           <Nav.Link href="#ADLogin">Admin Login</Nav.Link>
           <Nav.Link href="#about">Home</Nav.Link>
-          <Nav.Link href="#Helper">Be A Helper</Nav.Link>
+          <Nav.Link href="helper">Be A Helper</Nav.Link>
           <Nav.Link href="#Stories">Read Sucess Stories</Nav.Link>
           <Nav.Link href="#Contact">Contact Us</Nav.Link>
           <Nav.Link href="#Scope">Our Scope</Nav.Link>

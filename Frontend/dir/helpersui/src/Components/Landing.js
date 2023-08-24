@@ -6,6 +6,7 @@
 import RegistrationForm from './Registration';
 import ProtectedRoute from './ProtectedRoute';
 import Viewcampaign from './volunter/Viewcampaign';
+import AddingHelpervolunter from './volunter/AddingHelperVolunter';
     // import './common.css'
 
 
@@ -16,12 +17,13 @@ import Viewcampaign from './volunter/Viewcampaign';
                         <Header></Header>
                         
                         <Switch>
-                            
+                         <Route exact path="/helper"
+                         component={AddingHelpervolunter} />  
                         <Route exact path="/login" 
                                 component={LoginForm}/>
                        <ProtectedRoute exact path="/ViewCampaign"
                         component={Viewcampaign}/>
-                                    <ProtectedRoute exact path="/register" 
+                                    <Route exact path="/register" 
                             component={RegistrationForm}/>
                         </Switch>
                         

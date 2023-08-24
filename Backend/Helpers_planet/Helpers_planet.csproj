@@ -183,6 +183,7 @@
     <Compile Include="DTOs\CampaignDto.cs" />
     <Compile Include="DTOs\ContributionDto.cs" />
     <Compile Include="DTOs\Credential.cs" />
+    <Compile Include="DTOs\ResponseEntity.cs" />
     <Compile Include="DTOs\rolesDto.cs" />
     <Compile Include="DTOs\UserDto.cs" />
     <Compile Include="Filters\BasicFilter.cs" />

@@ -3,26 +3,99 @@ using Helpers_planet.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Net;
+using System.Net.Mail;
 using System.Web.Http;
-using System.Web.Mvc;
+using static System.Net.WebRequestMethods;
 
 namespace Helpers_planet.Controllers
 {
     public class LoginController : ApiController
     {
-        public bool userLogin(Credential cred)
+
+        public class MailService
         {
+            public static int GenerateOtp()
+            {
+                Random rand = new Random();
+                return rand.Next(1000, 10000);
+
+            }
+            static int Otp = GenerateOtp();
+            // Configure your SMTP settings
+            string smtpServer = "smtp.gmail.com";
+            int smtpPort = 587;
+            string smtpUsername = "abhishrivastava2407@gmail.com";
+            string smtpPassword = "cjxpwcqvvzauedph";
+
+            // Create the email message
+            public string Send(string email)
+            {
+
+                MailMessage Message = new MailMessage();
+
+                Message.From = new MailAddress(smtpUsername);
+
+                Message.To.Add(email);
+                Message.Subject = "Verification Code";
+                Message.Body = $"Your verification code is: {Otp} please do not share this with anyone";
+
+                // Configure the SMTP client
+                SmtpClient smtpClient = new SmtpClient(smtpServer, smtpPort);
+                smtpClient.UseDefaultCredentials = false;
+                smtpClient.Credentials = new NetworkCredential(smtpUsername, smtpPassword);
+                smtpClient.EnableSsl = true;
+
+                // Send the email
+                smtpClient.Send(Message);
+                return "Otp Send To your email successfully!!";
+            }
+
+            internal bool verifyOtp(int UserOtp)
+            {
+                if (Otp == UserOtp)
+                {
+                    return true;
+                }
+                return false;
+            }
+        }
+
+        public ResponseEntity CheckOtp(int otp)
+        {
+            ResponseEntity response = new ResponseEntity();
+            MailService mailService = new MailService();
+            bool flag = mailService.verifyOtp(otp);
+            if (flag){
+                return new ResponseEntity() { status = 200, message = "success" };
+            }
+            else {
+                return new ResponseEntity() { status = 401, message = "Invalid Credentials" };
+                }
+           }
+        public ResponseEntity userLogin(Credential cred)
+        {
+
           Cdac_finalEntities2 db = new Cdac_finalEntities2();
             List<user> users = db.users.ToList();
             foreach (user user in users)
             {
                  if(user.email == cred.email&& user.password == cred.password) {
-                    return true;
+                    MailService mailService = new MailService();
+                    mailService.Send(cred.email);
+                    ResponseEntity responseEntity = new ResponseEntity();
+                    responseEntity.status = 200;
+                    responseEntity.message = "Enter the otp";
+                    return responseEntity;
                 }
                 
             }
-            return false;
+            return new ResponseEntity() { status=401, message="Invalid Credentials"};
         }
     }
+
+
+
+
+   
 }
