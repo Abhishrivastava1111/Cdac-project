@@ -28,6 +28,8 @@ namespace Helpers_planet.Models
         public Nullable<System.DateTime> start_date { get; set; }
         public Nullable<System.DateTime> end_date { get; set; }
         public Nullable<int> status { get; set; }
+        public string imageloc { get; set; }
+        public Nullable<int> requiredAmount { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<campaign_details> campaign_details { get; set; }

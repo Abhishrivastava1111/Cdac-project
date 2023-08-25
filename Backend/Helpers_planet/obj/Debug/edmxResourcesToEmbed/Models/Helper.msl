@@ -4,6 +4,8 @@
     <EntitySetMapping Name="campaigns">
       <EntityTypeMapping TypeName="Cdac_finalModel.campaign">
         <MappingFragment StoreEntitySet="campaign">
+          <ScalarProperty Name="requiredAmount" ColumnName="requiredAmount" />
+          <ScalarProperty Name="imageloc" ColumnName="imageloc" />
           <ScalarProperty Name="campaign_id" ColumnName="campaign_id" />
           <ScalarProperty Name="title" ColumnName="title" />
           <ScalarProperty Name="type" ColumnName="type" />

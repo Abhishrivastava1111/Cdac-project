@@ -7,7 +7,12 @@ import RegistrationForm from './Registration';
 import ProtectedRoute from './ProtectedRoute';
 import Viewcampaign from './volunter/Viewcampaign';
 import AddingHelpervolunter from './volunter/AddingHelperVolunter';
-    // import './common.css'
+import InputVerificationComponent from './OtoCheck';
+import Donarprofile from './Doner/Donarprofile';
+import CampaignSlider from './CampaignSlider';
+import ImageSlider from './LandingImgSlider';
+import StartCampaignForm from './StartCampaign';
+// import './common.css'
 
 
     class Landing extends Component {
@@ -15,16 +20,28 @@ import AddingHelpervolunter from './volunter/AddingHelperVolunter';
             return (<div>
                 
                         <Header></Header>
-                        
+                       
+                   
                         <Switch>
-                         <Route exact path="/helper"
-                         component={AddingHelpervolunter} />  
+                        <Route exact path="/ADLogin"
+                        component={StartCampaignForm}/>
+                        <Route exact path="/CampaignSlider"
+                            component={CampaignSlider}/>
+                        <Route exact path="/ImageSlider"
+                            component={ImageSlider}/>
+                        <Route exact path="/helper"
+                             component={AddingHelpervolunter} />  
                         <Route exact path="/login" 
-                                component={LoginForm}/>
-                       <ProtectedRoute exact path="/ViewCampaign"
-                        component={Viewcampaign}/>
-                                    <Route exact path="/register" 
+                            component={LoginForm}/>
+                       
+                        <ProtectedRoute exact path="/ViewCampaign"
+                             component={Viewcampaign}/>
+                        <Route exact path="/register" 
                             component={RegistrationForm}/>
+                        <ProtectedRoute exact path ="/InputVerificationComponent"
+                            component={InputVerificationComponent}/>
+                        <ProtectedRoute exact path ="/Donarprofile"
+                            component={Donarprofile}/>
                         </Switch>
                         
                         <hr></hr>

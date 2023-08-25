@@ -5,14 +5,16 @@
       <PropertyRef Name="campaign_id" />
     </Key>
     <Property Name="campaign_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="title" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Name="type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="goal" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="title" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="type" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="goal" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
     <Property Name="start_date" Type="DateTime" Precision="0" />
     <Property Name="end_date" Type="DateTime" Precision="0" />
     <Property Name="status" Type="Int32" />
     <NavigationProperty Name="campaign_details" Relationship="Self.FK__campaign___campa__5DCAEF64" FromRole="campaign" ToRole="campaign_details" />
+    <Property Name="imageloc" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
+    <Property Name="requiredAmount" Type="Int32" />
   </EntityType>
   <EntityType Name="campaign_details">
     <Key>
@@ -62,7 +64,7 @@
     <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="mobile" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-    <Property Name="email" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="pan" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="campaign_details" Relationship="Self.FK__campaign___user___5CD6CB2B" FromRole="users" ToRole="campaign_details" />

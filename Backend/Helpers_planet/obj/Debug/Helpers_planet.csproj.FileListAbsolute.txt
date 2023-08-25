@@ -324,7 +324,9 @@ C:\Users\DELL\OneDrive\Desktop\New folder\Cdac-project\Backend\Helpers_planet\bi
 C:\Users\DELL\OneDrive\Desktop\New folder\Cdac-project\Backend\Helpers_planet\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\DELL\OneDrive\Desktop\New folder\Cdac-project\Backend\Helpers_planet\bin\Newtonsoft.Json.dll
 C:\Users\DELL\OneDrive\Desktop\New folder\Cdac-project\Backend\Helpers_planet\bin\System.Net.Http.Formatting.dll
+C:\Users\DELL\OneDrive\Desktop\New folder\Cdac-project\Backend\Helpers_planet\bin\System.Web.Cors.dll
 C:\Users\DELL\OneDrive\Desktop\New folder\Cdac-project\Backend\Helpers_planet\bin\System.Web.Helpers.dll
+C:\Users\DELL\OneDrive\Desktop\New folder\Cdac-project\Backend\Helpers_planet\bin\System.Web.Http.Cors.dll
 C:\Users\DELL\OneDrive\Desktop\New folder\Cdac-project\Backend\Helpers_planet\bin\System.Web.Http.dll
 C:\Users\DELL\OneDrive\Desktop\New folder\Cdac-project\Backend\Helpers_planet\bin\System.Web.Http.WebHost.dll
 C:\Users\DELL\OneDrive\Desktop\New folder\Cdac-project\Backend\Helpers_planet\bin\System.Web.Mvc.dll
@@ -336,6 +338,7 @@ C:\Users\DELL\OneDrive\Desktop\New folder\Cdac-project\Backend\Helpers_planet\bi
 C:\Users\DELL\OneDrive\Desktop\New folder\Cdac-project\Backend\Helpers_planet\bin\WebGrease.dll
 C:\Users\DELL\OneDrive\Desktop\New folder\Cdac-project\Backend\Helpers_planet\bin\EntityFramework.xml
 C:\Users\DELL\OneDrive\Desktop\New folder\Cdac-project\Backend\Helpers_planet\bin\EntityFramework.SqlServer.xml
+C:\Users\DELL\OneDrive\Desktop\New folder\Cdac-project\Backend\Helpers_planet\bin\System.Web.Http.Cors.xml
 C:\Users\DELL\OneDrive\Desktop\New folder\Cdac-project\Backend\Helpers_planet\bin\Newtonsoft.Json.xml
 C:\Users\DELL\OneDrive\Desktop\New folder\Cdac-project\Backend\Helpers_planet\bin\System.Net.Http.Formatting.xml
 C:\Users\DELL\OneDrive\Desktop\New folder\Cdac-project\Backend\Helpers_planet\bin\System.Web.Helpers.xml
@@ -354,6 +357,3 @@ C:\Users\DELL\OneDrive\Desktop\New folder\Cdac-project\Backend\Helpers_planet\ob
 C:\Users\DELL\OneDrive\Desktop\New folder\Cdac-project\Backend\Helpers_planet\obj\Debug\Helpers_planet.csproj.CopyComplete
 C:\Users\DELL\OneDrive\Desktop\New folder\Cdac-project\Backend\Helpers_planet\obj\Debug\Helpers_planet.dll
 C:\Users\DELL\OneDrive\Desktop\New folder\Cdac-project\Backend\Helpers_planet\obj\Debug\Helpers_planet.pdb
-C:\Users\DELL\OneDrive\Desktop\New folder\Cdac-project\Backend\Helpers_planet\bin\System.Web.Cors.dll
-C:\Users\DELL\OneDrive\Desktop\New folder\Cdac-project\Backend\Helpers_planet\bin\System.Web.Http.Cors.dll
-C:\Users\DELL\OneDrive\Desktop\New folder\Cdac-project\Backend\Helpers_planet\bin\System.Web.Http.Cors.xml

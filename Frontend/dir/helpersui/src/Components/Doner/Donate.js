@@ -1,5 +1,5 @@
-import '../node_modules/bootstrap/dist/css/bootstrap.css';
-import './common.css';
+import 'C:/Users/DELL/OneDrive/Desktop/New folder/Cdac-project/Frontend/dir/helpersui/node_modules/bootstrap/dist/css/bootstrap.css';
+import '../common.css';
 
 function Dashboard()
 {

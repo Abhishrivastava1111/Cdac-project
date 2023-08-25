@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import '../common.css';
+import React, { useState ,useEffect} from 'react';
+import './CampaignSlider.css'
 import { Carousel } from 'react-bootstrap';
+import axios from "axios";
 
 const campaignData = [
     { id: 1, title: 'Campaign 1', type: 'Healthcare', description: 'Help us raise funds for medical treatment.', requiredAmount: 5000, collectedAmount: 3000, endDate: '2023-09-30', image: 'campaign1.jpg' },
@@ -11,10 +12,11 @@ const campaignData = [
     
     // Add more campaign data here
 ];
-    
+
 const CampaignSlider = () => {
     const [startIndex, setStartIndex] = useState(0);
     const itemsPerPage = 5;
+    const [campaign , setCampaign ] = useState([]);
 
     const handleNext = () => {
         setStartIndex(prevIndex => prevIndex + itemsPerPage);
@@ -24,27 +26,39 @@ const CampaignSlider = () => {
         setStartIndex(prevIndex => Math.max(prevIndex - itemsPerPage, 0));
     };
 
+
+    useEffect(() => {
+        axios.get(`http://localhost:57380/campaign`)
+        .then(res => {
+          const persons = res.data;
+          setCampaign(persons);
+          console.log(persons)
+        })
+      },[]);
+
+    
     return (
         <div className="campaign-slider">
             <h2>Featured Campaigns</h2>
             <Carousel interval={null}>
                 {[...Array(Math.ceil(campaignData.length / itemsPerPage))].map((_, index) => {
-                    const campaigns = campaignData.slice(index * itemsPerPage, (index + 1) * itemsPerPage);
+                    //const campaigns = campaignData.slice(index * itemsPerPage, (index + 1) * itemsPerPage);
                     return (
                         <Carousel.Item key={index}>
                             <div className="campaign-grid">
-                                {campaigns.map(campaign => (
-                                    <div key={campaign.id} className="campaign-item">
-                                        <img src={campaign.image} alt={campaign.title} />
-                                        <h3>{campaign.title}</h3>
-                                        <p>Type: {campaign.type}</p>
-                                        <p>{campaign.description}</p>
+                               
+                                {campaign.map(campaignxx => (
+                                    <div key={campaignxx.id} className="campaign-item">
+                                        <img src={campaignxx.imageloc} alt={campaignxx.title} />
+                                        <h3>{campaignxx.title}</h3>
+                                        <p>Type: {campaignxx.type}</p>
+                                        <p>{campaignxx.description}</p>
                                         <div className="progress">
-                                            <div className="progress-bar" style={{ width: `${(campaign.collectedAmount / campaign.requiredAmount) * 100}%` }}></div>
+                                            <div className="progress-bar" style={{ width: `${(2000 / campaignxx.requiredAmount) * 100}%` }}></div>
                                         </div>
-                                        <p>Required Amount: ${campaign.requiredAmount}</p>
-                                        <p>Collected Amount: ${campaign.collectedAmount}</p>
-                                        <p>End Date: {campaign.endDate}</p>
+                                        <p>Required Amount: Rs {campaignxx.requiredAmount}</p>
+                                        <p>Collected Amount: Rs 2000 </p> 
+                                        <p>End Date: {campaignxx.end_date}</p>
                                         <button className="btn btn-success">Donate</button>
                                     </div>
                                 ))}

@@ -1,5 +1,6 @@
-import '../node_modules/bootstrap/dist/css/bootstrap.css';
-import './common.css';
+import 'C:/Users/DELL/OneDrive/Desktop/New folder/Cdac-project/Frontend/dir/helpersui/node_modules/bootstrap/dist/css/bootstrap.css';
+import '../common.css';
+
 
 function Dashboard()
 {
@@ -9,7 +10,7 @@ function Dashboard()
     return (
        
         
-        <div className='table-responsive'>
+        <div className='table-responsiveshubhu'>
         <hr></hr>
             <center><h1><b>Running Campaigns</b></h1></center>
             <hr></hr>

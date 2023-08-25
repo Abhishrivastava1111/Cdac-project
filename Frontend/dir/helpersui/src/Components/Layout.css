@@ -1,0 +1,51 @@
+/* Custom styles for the Layout component */
+
+.layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    height: 100vh;
+    background-color: #f8f9fa; /* Light gray */
+  }
+  
+  .left-column,
+  .right-column {
+    flex: 0 0 200px;
+    background-color: gray; /* Light gray */
+  }
+  
+  .left-column .nav,
+  .right-column .nav {
+    padding: 20px;
+  }
+  
+  .left-column .nav ul,
+  .right-column .nav ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .left-column .nav li,
+  .right-column .nav li {
+    margin-bottom: 10px;
+  }
+  
+  .left-column .nav a,
+  .right-column .nav a {
+    display: block;
+    color: #000; /* Black */
+    text-decoration: none;
+  }
+  
+  .main-content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #fff;
+  }
+  
+  
+  body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  }

@@ -5,6 +5,7 @@ import { useAuth } from './Auth';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 
 
+
 const LoginForm = () => {
   const history = useHistory()
   const { setIsLoggedIn } = useAuth();
@@ -44,7 +45,7 @@ const LoginForm = () => {
         window.sessionStorage.setItem('credential',loginCredentials)
         setIsLoggedIn(true);
         history.push({
-          pathname: '/Viewcampaign',
+          pathname: '/InputVerificationComponent',
           state: { isLoggedIn: true }
         });
         // You might want to save the token or user info from the response

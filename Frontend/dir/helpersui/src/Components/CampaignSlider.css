@@ -1,0 +1,65 @@
+/* CampaignSlider styles */
+.campaign-slider {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .campaign-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .campaign-item {
+    width: calc(20% - 20px); /* Adjust the width as needed */
+    border: 2px solid green; /* Green border */
+    padding: 20px;
+    margin: 5px; /* Reduced margin for closer spacing */
+    text-align: left;
+  }
+  
+  .campaign-item img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid black; /* Black border around images */
+  }
+  
+  .progress {
+    height: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    margin-top: 10px;
+    overflow: hidden;
+  }
+  
+  .progress-bar {
+    height: 100%;
+    background-color: green; /* Green color */
+  }
+  
+  .carousel-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Vertically center the buttons */
+    margin-top: 10px; /* Reduced margin for buttons */
+  }
+  
+  .btn-prev,
+  .btn-next {
+    font-size: 12px;
+    padding: 5px 10px;
+    width: 100px; /* Adjust the width as needed */
+  }
+  
+  .btn-prev {
+    margin-left: 10px; /* Reduced margin */
+  }
+  
+  .btn-next {
+    margin-right: 10px; /* Reduced margin */
+  }

@@ -5,13 +5,15 @@
       <PropertyRef Name="campaign_id" />
     </Key>
     <Property Name="campaign_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="title" Type="varchar" MaxLength="30" />
-    <Property Name="type" Type="varchar" MaxLength="20" />
-    <Property Name="goal" Type="varchar" MaxLength="30" />
-    <Property Name="description" Type="varchar" MaxLength="100" />
+    <Property Name="title" Type="varchar" MaxLength="300" />
+    <Property Name="type" Type="varchar" MaxLength="200" />
+    <Property Name="goal" Type="varchar" MaxLength="300" />
+    <Property Name="description" Type="varchar" MaxLength="1000" />
     <Property Name="start_date" Type="date" />
     <Property Name="end_date" Type="date" />
     <Property Name="status" Type="int" />
+    <Property Name="imageloc" Type="nchar" MaxLength="500" />
+    <Property Name="requiredAmount" Type="int" />
   </EntityType>
   <EntityType Name="campaign_details">
     <Key>
@@ -55,7 +57,7 @@
     <Property Name="name" Type="varchar" MaxLength="30" />
     <Property Name="address" Type="varchar" MaxLength="100" />
     <Property Name="mobile" Type="varchar" MaxLength="15" />
-    <Property Name="email" Type="varchar" MaxLength="25" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
     <Property Name="password" Type="varchar" MaxLength="30" />
     <Property Name="pan" Type="varchar" MaxLength="20" />
   </EntityType>

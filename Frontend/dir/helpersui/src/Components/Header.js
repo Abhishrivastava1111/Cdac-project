@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './common.css';
 
 
+
 const Header = () => {
   const nevigate = useHistory();
   var [isLoggedIn, setIsLoggedin] = useState(false)
@@ -30,7 +31,7 @@ const Header = () => {
 
   const logout =()=>{
     sessionStorage.removeItem('credential')
-    setIsLoggedin(false)
+    nevigate.push('/')
   }
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
@@ -47,12 +48,12 @@ const Header = () => {
       
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto"style={{ width: '600px',marginLeft:'100px', justifyContent: 'space-evenly' }} >
-          <Nav.Link href="#ADLogin">Admin Login</Nav.Link>
-          <Nav.Link href="#about">Home</Nav.Link>
-          <Nav.Link href="helper">Be A Helper</Nav.Link>
-          <Nav.Link href="#Stories">Read Sucess Stories</Nav.Link>
-          <Nav.Link href="#Contact">Contact Us</Nav.Link>
-          <Nav.Link href="#Scope">Our Scope</Nav.Link>
+          <Nav.Link href="/ADLogin">Admin Login</Nav.Link>
+          <Nav.Link href="/about">Home</Nav.Link>
+          <Nav.Link href="/helper">Be A Helper</Nav.Link>
+          <Nav.Link href="/Stories">Read Sucess Stories</Nav.Link>
+          <Nav.Link href="/Contact">Contact Us</Nav.Link>
+          <Nav.Link href="/Scope">Our Scope</Nav.Link>
           
         </Nav>
         <Nav style={{marginLeft:'300px'}}>

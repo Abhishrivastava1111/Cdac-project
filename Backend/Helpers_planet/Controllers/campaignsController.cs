@@ -17,6 +17,7 @@ namespace Helpers_planet.Controllers
         private Cdac_finalEntities2 db = new Cdac_finalEntities2();
 
         // GET: api/campaigns
+        [Route("campaign")]
         public IQueryable<campaign> Getcampaigns()
         {
             return db.campaigns;
@@ -71,6 +72,7 @@ namespace Helpers_planet.Controllers
         }
 
         // POST: api/campaigns
+        [Route("api/campaign")]
         [ResponseType(typeof(campaign))]
         public IHttpActionResult Postcampaign(campaign campaign)
         {

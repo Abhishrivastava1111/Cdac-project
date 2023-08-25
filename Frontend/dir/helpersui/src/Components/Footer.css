@@ -1,0 +1,49 @@
+.big-footer {
+    background-color: black;
+    color: white;
+    padding: 30px;
+    text-align: center;
+    font-size: 11px;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .contact-info {
+    flex: 1;
+    margin-bottom: 20px;
+  }
+  
+  .social-icons {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+  }
+  
+  .social-icons img {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    transition: transform 0.4s;
+  }
+  
+  .social-icons img:hover {
+    transform: scale(1.5);
+  }
+  .contact-info p {
+    border: 2px solid white;
+    padding: 10px;
+    display: inline-block;
+}
+
+.contact-info p img {
+   width: 800px;
+    
+    vertical-align: middle;
+    margin-right: 10px;
+}

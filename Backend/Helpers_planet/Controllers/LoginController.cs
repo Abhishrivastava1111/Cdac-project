@@ -6,66 +6,70 @@ using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using static System.Net.WebRequestMethods;
 
 namespace Helpers_planet.Controllers
 {
+    public class MailService
+    {
+        public static int GenerateOtp()
+        {
+            Random rand = new Random();
+            return rand.Next(1000, 10000);
+
+        }
+        static int Otp = GenerateOtp();
+        // Configure your SMTP settings
+        string smtpServer = "smtp.gmail.com";
+        int smtpPort = 587;
+        string smtpUsername = "abhishrivastava2407@gmail.com";
+        string smtpPassword = "cjxpwcqvvzauedph";
+
+        // Create the email message
+        public string Send(string email)
+        {
+
+            MailMessage Message = new MailMessage();
+
+            Message.From = new MailAddress(smtpUsername);
+
+            Message.To.Add(email);
+            Message.Subject = "Verification Code";
+            Message.Body = $"Your verification code is: {Otp} please do not share this with anyone";
+
+            // Configure the SMTP client
+            SmtpClient smtpClient = new SmtpClient(smtpServer, smtpPort);
+            smtpClient.UseDefaultCredentials = false;
+            smtpClient.Credentials = new NetworkCredential(smtpUsername, smtpPassword);
+            smtpClient.EnableSsl = true;
+
+            // Send the email
+            smtpClient.Send(Message);
+            return "Otp Send To your email successfully!!";
+        }
+
+        internal bool verifyOtp(int UserOtp)
+        {
+            if (Otp == UserOtp)
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+    [EnableCors("*","*","*")]
     public class LoginController : ApiController
     {
 
-        public class MailService
-        {
-            public static int GenerateOtp()
-            {
-                Random rand = new Random();
-                return rand.Next(1000, 10000);
-
-            }
-            static int Otp = GenerateOtp();
-            // Configure your SMTP settings
-            string smtpServer = "smtp.gmail.com";
-            int smtpPort = 587;
-            string smtpUsername = "abhishrivastava2407@gmail.com";
-            string smtpPassword = "cjxpwcqvvzauedph";
-
-            // Create the email message
-            public string Send(string email)
-            {
-
-                MailMessage Message = new MailMessage();
-
-                Message.From = new MailAddress(smtpUsername);
-
-                Message.To.Add(email);
-                Message.Subject = "Verification Code";
-                Message.Body = $"Your verification code is: {Otp} please do not share this with anyone";
-
-                // Configure the SMTP client
-                SmtpClient smtpClient = new SmtpClient(smtpServer, smtpPort);
-                smtpClient.UseDefaultCredentials = false;
-                smtpClient.Credentials = new NetworkCredential(smtpUsername, smtpPassword);
-                smtpClient.EnableSsl = true;
-
-                // Send the email
-                smtpClient.Send(Message);
-                return "Otp Send To your email successfully!!";
-            }
-
-            internal bool verifyOtp(int UserOtp)
-            {
-                if (Otp == UserOtp)
-                {
-                    return true;
-                }
-                return false;
-            }
-        }
-
-        public ResponseEntity CheckOtp(int otp)
+        
+       // [Route("login/checkotp")]
+        [HttpGet]
+        public ResponseEntity CheckOtp(int id)
         {
             ResponseEntity response = new ResponseEntity();
             MailService mailService = new MailService();
-            bool flag = mailService.verifyOtp(otp);
+            bool flag = mailService.verifyOtp(id);
             if (flag){
                 return new ResponseEntity() { status = 200, message = "success" };
             }
@@ -73,6 +77,7 @@ namespace Helpers_planet.Controllers
                 return new ResponseEntity() { status = 401, message = "Invalid Credentials" };
                 }
            }
+        [HttpPost]
         public ResponseEntity userLogin(Credential cred)
         {
 

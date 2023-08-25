@@ -7,14 +7,24 @@ import Landing from "./Landing";
 
 import AddingHelpervolunter from "./volunter/AddingHelperVolunter";
 import Donarprofile from "./Doner/Donarprofile";
+import Dashboard from "./Doner/Dashboard";
+import Dashboard1 from "./Doner/Dash";
+import LoginForm from "./LoginForm";
+import Header from "./Header";
+import Footer from "./Footer";
+import { AuthProvider } from "./Auth";
 
 const App = ()=>{
 
-    return <BrowserRouter>
+    return(<AuthProvider> <BrowserRouter>
    
    <ToastContainer/>
-   <Donarprofile/>
+   {/* <Dashboard/> */}
+
+   
    <Landing/>
+   
     </BrowserRouter>
+    </AuthProvider>)
 }
 export default App;

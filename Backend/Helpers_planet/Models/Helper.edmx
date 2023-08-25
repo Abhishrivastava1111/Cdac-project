@@ -4,19 +4,21 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Cdac_finalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Cdac_finalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="campaign">
           <Key>
             <PropertyRef Name="campaign_id" />
           </Key>
           <Property Name="campaign_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="title" Type="varchar" MaxLength="30" />
-          <Property Name="type" Type="varchar" MaxLength="20" />
-          <Property Name="goal" Type="varchar" MaxLength="30" />
-          <Property Name="description" Type="varchar" MaxLength="100" />
+          <Property Name="title" Type="varchar" MaxLength="300" />
+          <Property Name="type" Type="varchar" MaxLength="200" />
+          <Property Name="goal" Type="varchar" MaxLength="300" />
+          <Property Name="description" Type="varchar" MaxLength="1000" />
           <Property Name="start_date" Type="date" />
           <Property Name="end_date" Type="date" />
           <Property Name="status" Type="int" />
+          <Property Name="imageloc" Type="nchar" MaxLength="500" />
+          <Property Name="requiredAmount" Type="int" />
         </EntityType>
         <EntityType Name="campaign_details">
           <Key>
@@ -60,7 +62,7 @@
           <Property Name="name" Type="varchar" MaxLength="30" />
           <Property Name="address" Type="varchar" MaxLength="100" />
           <Property Name="mobile" Type="varchar" MaxLength="15" />
-          <Property Name="email" Type="varchar" MaxLength="25" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
           <Property Name="password" Type="varchar" MaxLength="30" />
           <Property Name="pan" Type="varchar" MaxLength="20" />
         </EntityType>
@@ -152,8 +154,7 @@
             <End Role="role" EntitySet="role" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Cdac_finalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -162,14 +163,16 @@
             <PropertyRef Name="campaign_id" />
           </Key>
           <Property Name="campaign_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="title" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="goal" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="title" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="type" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="goal" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
           <Property Name="start_date" Type="DateTime" Precision="0" />
           <Property Name="end_date" Type="DateTime" Precision="0" />
           <Property Name="status" Type="Int32" />
           <NavigationProperty Name="campaign_details" Relationship="Self.FK__campaign___campa__5DCAEF64" FromRole="campaign" ToRole="campaign_details" />
+          <Property Name="imageloc" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
+          <Property Name="requiredAmount" Type="Int32" />
         </EntityType>
         <EntityType Name="campaign_details">
           <Key>
@@ -219,7 +222,7 @@
           <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="mobile" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="email" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="pan" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="campaign_details" Relationship="Self.FK__campaign___user___5CD6CB2B" FromRole="users" ToRole="campaign_details" />
@@ -323,6 +326,8 @@
           <EntitySetMapping Name="campaigns">
             <EntityTypeMapping TypeName="Cdac_finalModel.campaign">
               <MappingFragment StoreEntitySet="campaign">
+                <ScalarProperty Name="requiredAmount" ColumnName="requiredAmount" />
+                <ScalarProperty Name="imageloc" ColumnName="imageloc" />
                 <ScalarProperty Name="campaign_id" ColumnName="campaign_id" />
                 <ScalarProperty Name="title" ColumnName="title" />
                 <ScalarProperty Name="type" ColumnName="type" />

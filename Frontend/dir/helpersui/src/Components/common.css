@@ -1,29 +1,84 @@
-.myDivStyle
-{
-    margin: 20px;
+/*
+css for otp varification
+*/
+
+/* for the css of Donar's dashboard
+*/
+
+.floatleftdonS{
+    float: left;
+    height: 100%;
+    background:gray;
+    width: 200px;
 }
 
-.hdr {
-    height: 100px;
-    background-color:yellow;
+.floatrightdonS{
+    float: right;
+    height: 100%;
+    background:gray;
+    width: 200px;
+
+}
+/* for the css of Donar's profile
+*/
+.input-containershubhu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    margin-top: 200px;
+}
+
+.input-fieldshubhu {
+    padding: 10px;
+    margin: 5px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.bottom-button1shubhu {
+    background-color: #054a34;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px; /* Adjust margin as needed */
+}
+
+.button-containershubhu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding: 20px;
+}
+.shadow-boxshubhu {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 20px; /* Adjust the padding as needed */
+    background-color: white; /* Adjust the background color as needed */
+    border-radius: 10px;
+    margin: 30px; /* Adjust the margin as needed */
+    height: 900px;
 }
 
 
+.table-responsiveshubhu {
+    position: relative;
+}
+
+.campaign-table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
 .ftr {
     height: 30px;
     background-color:rgb(12, 14, 12);
 }
 
-.container{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 100px;
-    border : 2px solid black;
-    height: 100%;
-    width: 100%
-    ;
-}
+
 
 .content{
     margin: 5px;
@@ -186,9 +241,7 @@
     border: 1px solid #ddd;
 }
 
-.campaign-table th {
-    background-color: #f2f2f2;
-}
+
 
 
 .campaign-table {
@@ -392,142 +445,7 @@
     margin-right: 10px; /* Reduced margin */
   }
 
-  .myDivStyle
-{
-    margin: 20px;
-}
 
-.hdr {
-    height: 100px;
-    background-color:yellow;
-}
-
-
-.ftr {
-    height: 100px;
-    background-color:black;
-}
-
-.container{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 100px;
-    border : 2px solid black;
-    height: 100%;
-    width: 100%
-    ;
-}
-
-.content{
-    margin: 5px;
-    text-align: center;
-    height: 200px;
-    width: 200px;
-    border : 2px solid black;
-    background-color: gold;
-}
-
-.img{
-    height: 100px;
-    width: 100px;
-}
-.quote-header {
-    white-space: nowrap;
-}
-
-.quote {
-    display: inline-block;
-    text-align: center;
-}
-
-.right-links {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    margin-right: 20px; /* Adjust margin as needed */
-}
-
-.button-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
-    padding: 20px;
-}
-
-.bottom-button {
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    margin-right: 10px; /* Adjust margin as needed */
-}
-
-.button-space {
-    flex-grow: 1;
-}
-.black-link {
-    color: black;
-    text-decoration: none;
-}
-.myDivStyle {
-    padding: 20px;
-    background-color: #f5f5f5;
-}
-
-.campaign-table {
-    width: 80%;
-    margin: 0 auto;
-    border-collapse: collapse;
-    border: 1px solid #ddd;
-}
-
-.campaign-table th, .campaign-table td {
-    padding: 10px;
-    text-align: center;
-    border: 1px solid #ddd;
-}
-
-.campaign-table th {
-    background-color: #f2f2f2;
-}
-
-
-.campaign-table {
-    width: 80%;
-    margin: 0 auto;
-    border-collapse: collapse;
-    border: 1px solid #ddd;
-}
-
-.campaign-table th, .campaign-table td {
-    padding: 10px;
-    text-align: center;
-    border: 1px solid #ddd;
-}
-
-.campaign-table th {
-    background-color: #f2f2f2;
-}
-
-.table-responsive {
-    position: relative;
-}
-
-.bottom-anchor {
-    position: absolute;
-    bottom: 20px; /* Adjust as needed */
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.bottom-right-anchor {
-    position: absolute;
-    bottom: 20px; /* Adjust as needed */
-    right: 20px;
-}
 .input-container {
     display: flex;
     flex-direction: column;
@@ -706,6 +624,43 @@
         background: lightgray;
         width: 300px;
     }
+/*
+css for the donar's profile
+*/
+.shadow-box {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 20px; /* Adjust the padding as needed */
+    background-color: white; /* Adjust the background color as needed */
+    border-radius: 10px;
+    margin: 30px; /* Adjust the margin as needed */
+    height: 900px;
+}
+.bottom-button1 {
+    background-color: #054a34;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px; /* Adjust margin as needed */
+}
+
+.input-field {
+    padding: 10px;
+    margin: 5px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+
 /* .quote {
     display: block;
     text-align: center;

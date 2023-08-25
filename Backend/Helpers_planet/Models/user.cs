@@ -11,8 +11,7 @@ namespace Helpers_planet.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.Runtime.Serialization;
-
+    
     public partial class user
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -29,17 +28,13 @@ namespace Helpers_planet.Models
         public string mobile { get; set; }
         public string email { get; set; }
         public string password { get; set; }
-        public string pan { get; set; }  
-
+        public string pan { get; set; }
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-       
         public virtual ICollection<campaign_details> campaign_details { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-
-        
         public virtual ICollection<contribution> contributions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-      
         public virtual ICollection<role> roles { get; set; }
     }
 }
