@@ -1,0 +1,33 @@
+﻿@model AdminSide.Models.user
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit Profile</title>
+</head>
+<body>
+    <div>
+        <h2>Edit Profile</h2>
+        <form method="post" action="/Admin/EditEmp">
+            <input type="hidden" readonly name="user_id" value="@Model.user_id" />
+
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="@Model.name" /><br />
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" value="@Model.address" /><br />
+
+            <label for="mobile">Mobile:</label>
+            <input type="text" id="mobile" name="mobile" value="@Model.mobile" /><br />
+
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" value="@Model.email" /><br />
+
+            <label for="pan">PAN:</label>
+            <input type="text" id="pan" name="pan" value="@Model.pan" /><br />
+
+            <button type="submit">Update</button>
+        </form>
+    </div>
+</body>
+</html>

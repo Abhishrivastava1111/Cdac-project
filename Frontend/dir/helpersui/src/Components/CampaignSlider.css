@@ -1,65 +1,107 @@
-/* CampaignSlider styles */
 .campaign-slider {
-    padding: 20px;
-    text-align: center;
-  }
-  
-  h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .campaign-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  
-  .campaign-item {
-    width: calc(20% - 20px); /* Adjust the width as needed */
-    border: 2px solid green; /* Green border */
-    padding: 20px;
-    margin: 5px; /* Reduced margin for closer spacing */
-    text-align: left;
-  }
-  
-  .campaign-item img {
-    max-width: 100%;
-    height: auto;
-    border: 2px solid black; /* Black border around images */
-  }
-  
-  .progress {
-    height: 10px;
-    background-color: #f0f0f0;
-    border-radius: 5px;
-    margin-top: 10px;
-    overflow: hidden;
-  }
-  
-  .progress-bar {
-    height: 100%;
-    background-color: green; /* Green color */
-  }
-  
-  .carousel-buttons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center; /* Vertically center the buttons */
-    margin-top: 10px; /* Reduced margin for buttons */
-  }
-  
-  .btn-prev,
-  .btn-next {
-    font-size: 12px;
-    padding: 5px 10px;
-    width: 100px; /* Adjust the width as needed */
-  }
-  
-  .btn-prev {
-    margin-left: 10px; /* Reduced margin */
-  }
-  
-  .btn-next {
-    margin-right: 10px; /* Reduced margin */
-  }
+  box-shadow: 0 0 10px green;
+  padding: 20px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.campaign-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.campaign-item {
+  width: calc(25% - 20px);
+  border: 2px solid green;
+  padding: 20px;
+  margin: 10px; 
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.4s;
+}
+
+.campaign-item img {
+  max-width: 100%;
+  height: auto;
+  border: 2px solid black;
+  cursor: pointer;
+  transition: transform 0.4s;
+}
+
+.campaign-item:hover img {
+  transform: scale(1.1);
+}
+
+.campaign-item:hover {
+  box-shadow: 0 0 20px rgb(5, 193, 5);
+}
+
+.progress {
+  height: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: green;
+}
+
+.carousel-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px; 
+}
+
+.btn-prev,
+.btn-next {
+  font-size: 12px;
+  padding: 5px 10px;
+  width: 100px; /* Adjust the width as needed */
+}
+
+.btn-prev {
+  margin-left: 10px; /* Reduced margin */
+}
+
+.btn-next {
+  margin-right: 10px; /* Reduced margin */
+}
+
+
+.carousel-arrows {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.carousel-arrow {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-image: url(https://firebasestorage.googleapis.com/v0/b/helpers--planet.appspot.com/o/right-arrow.png?alt=media&token=edebe669-2a44-41c4-9ee2-4cd94ea91bb8); /* Replace with your arrow icon image */
+  background-size: cover;
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+}
+
+.carousel-arrow:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+  transform: scale(1.2); /* Enlarge the arrow */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add shadow */
+}
+
+.prev-arrow {
+  transform: rotate(180deg);
+}

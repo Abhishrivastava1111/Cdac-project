@@ -1,108 +1,92 @@
 import { useEffect, useState } from 'react';
-import 'C:/Users/DELL/OneDrive/Desktop/New folder/Cdac-project/Frontend/dir/helpersui/node_modules/bootstrap/dist/css/bootstrap.css';
+import '../../../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../common.css';
 import user from "../image/user_456212.png"
 
-
-
-
-
 function Donarprofile() {
-    const [message, setmessage] = useState("");
- 
-
-
+  
     const [donor, setdonor] = useState({
-        Fname: "", Lname: "", email: "", mno: "", Add: "", pin: ""
+        name: "", address:"", email: "", mobile: "", address: "", pan: "",password:""
     });
-
-    var onTextChanged = (args) => {
-        var copyOfdonor = { ...donor };
-        copyOfdonor[args.target.name] = args.target.value;
-        setdonor(copyOfdonor);
-    }
-
-    var EditDonar = () => {
+    
+  const load=()=>{
+     
+        console.log("Inside Component Did Mount..")
         var helper = new XMLHttpRequest();
-        helper.onreadystatechange = () => {
-            if (helper.readyState === 4 && helper.status === 200) {
-                var result = JSON.parse(helper.responseText);
-                if (result.affectedRows > 0) {
-                    ShowMessage("Record Edit Successfully");
-                } else {
-                    ShowMessage("Something went wrong!");
-                }
-            }
+        helper.onreadystatechange = ()=>{
+            if(helper.readyState === 4 &&
+               helper.status === 200)
+               {
+                debugger;
+                //console.log(helper.responseText);
+            var data = JSON.parse(helper.responseText);
+                console.log(helper.responseText)
+                console.log("Setting State to Array in Component Did Mount & XHR Call")
+                setdonor(data);
+               }
         }
+        helper.open("GET", 
+                    "http://localhost:57380/user/GetOneById/1");
+        helper.send();
 
-        helper.open("POST", "*****");
-        helper.setRequestHeader("content-type", "application/json");
-        helper.send(JSON.stringify(donor));
-    }
-
-    var ShowMessage = (urmessage) => {
-        setmessage(urmessage);
-        window.setTimeout(() => {
-            setmessage("");
-        }, 5000);
     }
 
     return (
-       <div className="shadow-boxshubhu">
+       <div onLoad={load()} className="shadow-boxshubhu">
             
       
-        <div className='input-containershubhu '>
+        <div className='input-containershubhu'>
         <img src={user} alt="hello" width="100" height="100"></img>
              <hr></hr>
             <label>First Name</label>
             <input type="text"
-            name = 'Fname'
+            name = 'name'
             className="input-fieldshubhu"
-            value={donor.Fname}
-            onChange={onTextChanged}
-            placeholder="First Name" />
-         
-            <br></br>
-            <label>Last Name</label>
-            <input type="text"
-            value={donor.Lname}
-            name = "Lname" 
-            onChange={onTextChanged}
-            className="input-fieldshubhu" placeholder="Last Name" />
+            value={donor.name}
+           />
+
             <br></br>
             <label>Email</label>
             <input type="text"
             name='email'
             value={donor.email}
-            onChange={onTextChanged} 
-            className="input-fieldshubhu" placeholder="Email" />
+           
+            className="input-fieldshubhu" />
             <br></br>
             <label>Mobile Number</label>
             <input type="text"
-            name='mno'
-            value={donor.mno}
-            onChange={onTextChanged} 
-            className="input-fieldshubhu" placeholder="Mobile Number" />
+            name='mobile'
+            value={donor.mobile}
+            
+            className="input-fieldshubhu"  />
             <br></br>
             <label>Address</label>
             <input type="text"
-            name='Add'
-            value={donor.Add}
-            onChange={onTextChanged} 
-            className="input-fieldshubhu" placeholder="Address" />
+            name='address'
+            value={donor.address}
+           
+            className="input-fieldshubhu" />
             <br></br>
-            <label>Pincode</label>
+            <label>Pan</label>
             <input type="text"
-            name='pin'
-            value={donor.pin}
-            onChange={onTextChanged} 
-            className="input-fieldshubhu" placeholder="Pincode" />
+            name='pan'
+            value={donor.pan}
+          
+            className="input-fieldshubhu"  />
+            <br></br>
+            <br></br>
+            <label>Password</label>
+            <input type="text"
+            name='password'
+            value={1665656}
+          
+            className="input-fieldshubhu"  />
             <br></br>
                 
+
+
                 <div className="button-containershubhu">
-                    <button onClick={EditDonar} className='bottom-button1shubhu'>
-                        Edit
-                    </button>
+                   
                     <button type="button" className="bottom-button1shubhu">
                         Back
                     </button>

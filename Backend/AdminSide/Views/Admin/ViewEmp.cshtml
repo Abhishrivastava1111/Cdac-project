@@ -1,0 +1,35 @@
+﻿@model List<AdminSide.Models.user>
+
+@{
+    ViewBag.Title = "Worker List";
+}
+
+<h2>Worker List</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Mobile</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var worker in Model)
+        {
+            <tr>
+                <td>@worker.name</td>
+                <td>@worker.address</td>
+                <td>@worker.mobile</td>
+                <td>@worker.email</td>
+                <td>
+                    <a href="/Admin/EditEmp/@worker.user_id" class="btn btn-outline-success">Edit</a>
+                    <br />
+                    <a href="/Admin/DelEmp/@worker.user_id" class="btn btn-outline-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

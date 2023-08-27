@@ -2,10 +2,9 @@
 using Helpers_planet.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+
 using System.Web.Http;
+
 
 namespace Helpers_planet.Controllers
 {
@@ -13,8 +12,9 @@ namespace Helpers_planet.Controllers
     public class userController : ApiController
     {
         Cdac_finalEntities2 cdac_FinalEntities2 = new Cdac_finalEntities2();
-        // GET api/values
-        public List<UserDto> Get()
+        // GET api/value
+        [HttpGet]
+        public List<UserDto> GetAll()
         {
             List<UserDto> users = new List<UserDto>();
             foreach (user user in cdac_FinalEntities2.users)
@@ -36,10 +36,20 @@ namespace Helpers_planet.Controllers
            /* return cdac_FinalEntities2.users.ToList();*/
         }
 
-        // GET api/values/5
-        public user Get(int id)
+
+        [HttpGet]
+        public UserDto GetOneById(int id)
         {
-            return cdac_FinalEntities2.users.Find(id);
+           user user = cdac_FinalEntities2.users.Find(id);
+            UserDto userDto = new UserDto();
+            userDto.user_id = user.user_id;
+            userDto.name = user.name;
+            userDto.email = user.email;
+            userDto.address = user.address;
+            userDto.mobile = user.mobile;
+            userDto.pan = user.pan;
+            userDto.password = user.password;
+            return userDto;
         }
 
         // POST api/values
@@ -58,20 +68,24 @@ namespace Helpers_planet.Controllers
             
         }
 
-        // PUT api/values/5
-        public void Put(user u)
+        [HttpPut]
+        public void Update(user u)
         {
-           user userToBeUpdated = cdac_FinalEntities2.users.Find(u.user_id);
+            Cdac_finalEntities2 cdac = new Cdac_finalEntities2();
+            
+           user userToBeUpdated = cdac.users.Find(u.user_id);
             userToBeUpdated.name  = u.name; 
             userToBeUpdated.email = u.email;
             userToBeUpdated.password = u.password;
             userToBeUpdated.address = u.address;
+            userToBeUpdated.mobile = u.mobile;
+            userToBeUpdated.pan = u.pan;    
 
-            cdac_FinalEntities2.SaveChanges();
+            cdac.SaveChanges();
         }
 
-        // DELETE api/values/5
-        public string Delete(int id)
+        [System.Web.Http.HttpDelete]
+        public string DeleteById(int id)
         {
 
             user u = cdac_FinalEntities2.users.Find(id);

@@ -12,6 +12,9 @@ const Header = () => {
   const loginStatus = JSON.parse(sessionStorage.getItem('credential'));
   console.log(loginStatus)
 
+  const donate =()=>{
+      nevigate.push('/donate')
+  }
   
   const RedirectToLogin=()=>{
     if(loginStatus)
@@ -48,11 +51,11 @@ const Header = () => {
       
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto"style={{ width: '600px',marginLeft:'100px', justifyContent: 'space-evenly' }} >
-          <Nav.Link href="/ADLogin">Admin Login</Nav.Link>
-          <Nav.Link href="/about">Home</Nav.Link>
+          <Nav.Link href="http://somthing">Admin Login</Nav.Link>
+          <Nav.Link href="/">Home</Nav.Link>
           <Nav.Link href="/helper">Be A Helper</Nav.Link>
           <Nav.Link href="/Stories">Read Sucess Stories</Nav.Link>
-          <Nav.Link href="/Contact">Contact Us</Nav.Link>
+          <Nav.Link href="/ContactUs">Contact Us</Nav.Link>
           <Nav.Link href="/Scope">Our Scope</Nav.Link>
           
         </Nav>
@@ -76,7 +79,7 @@ const Header = () => {
           <Button style={{ color:'black',
            height: '40px',
            width: '290px',
-           backgroundColor: 'yellow'}}>Donate Now</Button>
+           backgroundColor: 'yellow'}} onClick={()=>{donate()}}>Donate Now</Button>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

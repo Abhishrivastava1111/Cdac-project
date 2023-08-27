@@ -1,0 +1,15 @@
+﻿
+
+<h2> Please Login First</h2>
+<form action="@Url.Action("Login", "Login")" method="post">
+    @Html.Hidden("ReturnUrl", Request.QueryString["ReturnUrl"])
+    <div>
+        <label for="UserName">Username:</label>
+        <input type="text" id="UserName" name="UserName" value="" />
+    </div>
+    <div>
+        <label for="Password">Password:</label>
+        <input type="password" id="Password" name="Password" value="" />
+    </div>
+    <button type="submit">Login</button>
+</form>

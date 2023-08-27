@@ -35,7 +35,7 @@ namespace Helpers_planet.Controllers
             return Ok(contribution);
         }
 
-        // PUT: api/contributions/5
+        [HttpPut]
         [ResponseType(typeof(void))]
         public IHttpActionResult Putcontribution(int id, contribution contribution)
         {
@@ -70,9 +70,10 @@ namespace Helpers_planet.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
+        [HttpPost]
         // POST: api/contributions
         [ResponseType(typeof(contribution))]
-        public IHttpActionResult Postcontribution(contribution contribution)
+        public IHttpActionResult NewContro(contribution contribution)
         {
             if (!ModelState.IsValid)
             {

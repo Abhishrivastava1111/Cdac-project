@@ -32,15 +32,17 @@ const LoginForm = () => {
     
     const credentials = { // Move this inside the handleSubmit function
       email: formData.email, // Use formData.email
-      password: formData.password
+      password: formData.password,
+      
     };
 
     // Send POST request
     axios.post('http://localhost:57380/Login/userLogin', credentials)
       .then(response => {
         // Handle success
+        debugger
         console.log('Login successful:', response.data);
-        const loginCredentials = JSON.stringify(credentials)
+        const loginCredentials = JSON.stringify(response.data)
         
         window.sessionStorage.setItem('credential',loginCredentials)
         setIsLoggedIn(true);

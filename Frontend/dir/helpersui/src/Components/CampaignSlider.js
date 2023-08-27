@@ -1,80 +1,72 @@
-import React, { useState ,useEffect} from 'react';
-import './CampaignSlider.css'
+import React, { useState, useEffect } from 'react';
+import './CampaignSlider.css';
 import { Carousel } from 'react-bootstrap';
-import axios from "axios";
+import axios from 'axios';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 
-const campaignData = [
-    { id: 1, title: 'Campaign 1', type: 'Healthcare', description: 'Help us raise funds for medical treatment.', requiredAmount: 5000, collectedAmount: 3000, endDate: '2023-09-30', image: 'campaign1.jpg' },
-    { id: 2, title: 'Campaign 2', type: 'Education', description: 'Help us raise funds for education.', requiredAmount: 8000, collectedAmount: 6000, endDate: '2023-10-15', image: 'campaign2.jpg' },
-    { id: 3, title: 'Campaign 1', type: 'Healthcare', description: 'Help us raise funds for medical treatment.', requiredAmount: 5000, collectedAmount: 3000, endDate: '2023-09-30', image: 'campaign1.jpg' },
-    { id: 4, title: 'Campaign 2', type: 'Education', description: 'Help us raise funds for education.', requiredAmount: 8000, collectedAmount: 6000, endDate: '2023-10-15', image: 'campaign2.jpg' },
-    { id: 5, title: 'Campaign 2', type: 'Education', description: 'Help us raise funds for education.', requiredAmount: 8000, collectedAmount: 6000, endDate: '2023-10-15', image: 'campaign2.jpg' },
-    
-    // Add more campaign data here
-];
+
+const itemsPerPage = 4; // Number of campaigns per slide
 
 const CampaignSlider = () => {
-    const [startIndex, setStartIndex] = useState(0);
-    const itemsPerPage = 5;
-    const [campaign , setCampaign ] = useState([]);
+  const [startIndex, setStartIndex] = useState(0);
+  const [campaign, setCampaign] = useState([]);
+  const history = useHistory();
+const donate=(x)=>{
+  debugger;
+  history.push({
+    pathname: '/donate',
+    state: { x }
+  });
+}
 
-    const handleNext = () => {
-        setStartIndex(prevIndex => prevIndex + itemsPerPage);
-    };
+  useEffect(() => {
+    axios
+      .get('http://localhost:57380/campaign')
+      .then((res) => {
+        debugger
+        const persons = res.data;
+        setCampaign(persons);
+      })
+      .catch((error) => {
+        console.error('Error fetching campaign data:', error);
+      });
+  }, []);
 
-    const handlePrevious = () => {
-        setStartIndex(prevIndex => Math.max(prevIndex - itemsPerPage, 0));
-    };
-
-
-    useEffect(() => {
-        axios.get(`http://localhost:57380/campaign`)
-        .then(res => {
-          const persons = res.data;
-          setCampaign(persons);
-          console.log(persons)
-        })
-      },[]);
-
-    
-    return (
-        <div className="campaign-slider">
-            <h2>Featured Campaigns</h2>
-            <Carousel interval={null}>
-                {[...Array(Math.ceil(campaignData.length / itemsPerPage))].map((_, index) => {
-                    //const campaigns = campaignData.slice(index * itemsPerPage, (index + 1) * itemsPerPage);
-                    return (
-                        <Carousel.Item key={index}>
-                            <div className="campaign-grid">
-                               
-                                {campaign.map(campaignxx => (
-                                    <div key={campaignxx.id} className="campaign-item">
-                                        <img src={campaignxx.imageloc} alt={campaignxx.title} />
-                                        <h3>{campaignxx.title}</h3>
-                                        <p>Type: {campaignxx.type}</p>
-                                        <p>{campaignxx.description}</p>
-                                        <div className="progress">
-                                            <div className="progress-bar" style={{ width: `${(2000 / campaignxx.requiredAmount) * 100}%` }}></div>
-                                        </div>
-                                        <p>Required Amount: Rs {campaignxx.requiredAmount}</p>
-                                        <p>Collected Amount: Rs 2000 </p> 
-                                        <p>End Date: {campaignxx.end_date}</p>
-                                        <button className="btn btn-success">Donate</button>
-                                    </div>
-                                ))}
-                            </div>
-                            {index === Math.ceil(campaignData.length / itemsPerPage) - 1 && (
-                               <div className="carousel-buttons">
-                               <button className="btn btn-primary btn-small btn-prev" onClick={handlePrevious} disabled={startIndex === 0}>Previous</button>
-                               <button className="btn btn-primary btn-small btn-next" onClick={handleNext} disabled={startIndex + itemsPerPage >= campaignData.length}>Next</button>
-                           </div>
-                            )}
-                        </Carousel.Item>
-                    );
-                })}
-            </Carousel>
-        </div>
-    );
+  return (
+    <div className="campaign-slider">
+      <h2>Featured Campaigns</h2>
+      <Carousel interval={null} indicators={false} activeIndex={startIndex}>
+        {[...Array(Math.ceil(campaign.length / itemsPerPage))].map((_, index) => {
+          const campaignSubset = campaign.slice(index * itemsPerPage, (index + 1) * itemsPerPage);
+          return (
+            <Carousel.Item key={index}>
+              <div className="campaign-grid">
+                {campaignSubset.map((campaignxx) => (
+                  <div key={campaignxx.campaign_id} className="campaign-item">
+                    <img src={campaignxx.imageloc} alt={campaignxx.title} />
+                    <h3>{campaignxx.title}</h3>
+                    <p>Type: {campaignxx.type}</p>
+                    <p>{campaignxx.description}</p>
+                    <div className="progress">
+                      <div className="progress-bar" style={{ width: `${(campaignxx.collectedAmount / campaignxx.requiredAmount) * 100}%` }}></div>
+                    </div>
+                    <p>Required Amount: Rs {campaignxx.requiredAmount}</p>
+                    <p>Collected Amount: Rs {campaignxx.collectedAmount}</p>
+                    <p>End Date: {campaignxx.end_date}</p>
+                    <button className="btn btn-success" onClick={()=>{donate(campaignxx.campaign_id)}}>Donate</button>
+                  </div>
+                ))}
+              </div>
+            </Carousel.Item>
+          );
+        })}
+      </Carousel>
+      <div className="carousel-arrows">
+        <button className="carousel-arrow prev-arrow" onClick={() => setStartIndex((prevIndex) => Math.max(prevIndex - 1, 0))} disabled={startIndex === 0}></button>
+        <button className="carousel-arrow next-arrow" onClick={() => setStartIndex((prevIndex) => Math.min(prevIndex + 1, Math.ceil(campaign.length / itemsPerPage) - 1))} disabled={startIndex + itemsPerPage >= campaign.length}></button>
+      </div>
+    </div>
+  );
 };
 
 export default CampaignSlider;

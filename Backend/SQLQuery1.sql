@@ -1,0 +1,1 @@
+﻿select name, role_name from users , role, role_names where users.user_id=role.user_id and role.role_id = role_names.role_id;

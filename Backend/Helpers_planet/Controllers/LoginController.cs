@@ -91,6 +91,8 @@ namespace Helpers_planet.Controllers
                     ResponseEntity responseEntity = new ResponseEntity();
                     responseEntity.status = 200;
                     responseEntity.message = "Enter the otp";
+                    responseEntity.email = user.email;
+                    responseEntity.user_id = user.user_id;
                     return responseEntity;
                 }
                 

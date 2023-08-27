@@ -36,10 +36,10 @@ namespace Helpers_planet.Controllers
             return Ok(campaign);
         }
 
-        // PUT: api/campaigns/5
-        [ResponseType(typeof(void))]
-        public IHttpActionResult Putcampaign(int id, campaign campaign)
-        {
+         
+        [HttpPut]
+        public IHttpActionResult editCampaign(int id, campaign campaign)
+        { 
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
