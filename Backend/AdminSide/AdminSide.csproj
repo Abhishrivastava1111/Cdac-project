@@ -204,6 +204,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\abhi.png" />
     <Content Include="Models\MVCHelp.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MVCHelp.Context.cs</LastGenOutput>
@@ -260,6 +261,8 @@
     <Content Include="Views\Admin\ViewCampaign.cshtml" />
     <Content Include="Views\Admin\PastCampaign.cshtml" />
     <Content Include="Views\Login\Authorize.cshtml" />
+    <Content Include="Views\Admin\EditProfile.cshtml" />
+    <Content Include="Views\Admin\ViewProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

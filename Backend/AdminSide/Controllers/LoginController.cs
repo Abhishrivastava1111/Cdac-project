@@ -1,4 +1,5 @@
 ﻿using AdminSide.Models;
+using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,14 +28,19 @@ namespace AdminSide.Controllers
         [HttpPost]
         public ActionResult Login(AdUser user, string ReturnUrl)
         {
+            if (ReturnUrl == "")
+                ReturnUrl = ReturnUrl = "/Admin/Index";
             Cdac_finalEntities db = new Cdac_finalEntities();
-           List<user>list = db.users.ToList();
-            foreach (var e in list)
+            var user1 = db.users.FirstOrDefault(u => u.email == user.UserName && u.password == user.password);
+            if (user != null)
             {
-                if(e.email==user.UserName&& e.password==user.password) {
-                    TempData["userName"]= e.email;
-                    FormsAuthentication.SetAuthCookie(user.UserName, false);
-                    return Redirect(ReturnUrl); }
+                var isAdmin = db.roles.Any(r => r.user_id == user1.user_id && r.role_id == 1);
+                if (isAdmin)
+                {
+                    TempData["userName"] = user1.email;
+                    FormsAuthentication.SetAuthCookie(user1.email, false);
+                    return Redirect(ReturnUrl);
+                }
             }
             return  RedirectToAction("/Authorize");
         }

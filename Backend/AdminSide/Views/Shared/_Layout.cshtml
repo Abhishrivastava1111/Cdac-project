@@ -23,14 +23,14 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item">@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Home", "Index", "Admin", new { area = "" }, new { @class = "nav-link" })</li>
                     <li class="nav-item">@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li class="nav-item">@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                 </ul>
             </div>
 
             <div class="text-end">
-                <a href="Login/Logout" class="btn btn-outline-warning">Logout</a>
+                <a href="/Login/Logout" class="btn btn-outline-warning">Logout</a>
             </div>
         </div>
     </nav>
@@ -50,10 +50,10 @@
             </div>
             <div class="col-md-3">
                 <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action">Show Profile</a>
-                    <a href="#" class="list-group-item list-group-item-action">Edit Profile</a>
+                    <a href="/Admin/ViewProfile" class="list-group-item list-group-item-action">Show Profile</a>
+                    <a href="/Admin/EditProfile" class="list-group-item list-group-item-action">Edit Profile</a>
                     <a href="#" class="list-group-item list-group-item-action">Create To Do List</a>
-                    <a href="#" class="list-group-item list-group-item-action">Logout</a>
+                    <a href="/Login/Logout" class="list-group-item list-group-item-action">Logout</a>
                 </div>
             </div>
         </div>

@@ -26,7 +26,7 @@ function Donarprofile() {
                }
         }
         helper.open("GET", 
-                    "http://localhost:57380/user/GetOneById/1");
+                    "http://localhost:57380/User/12");
         helper.send();
 
     }

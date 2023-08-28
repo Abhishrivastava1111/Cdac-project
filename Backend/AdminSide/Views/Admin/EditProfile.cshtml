@@ -1,0 +1,36 @@
+﻿@model AdminSide.Models.user
+
+@{
+    ViewBag.Title = "Edit User Profile";
+}
+
+<div class="container">
+    <h2>Edit User Profile</h2>
+    @using (Html.BeginForm("UpdateProfile", "Admin", FormMethod.Post))
+    {
+       <div class="form-group">
+           @Html.HiddenFor(model => model.user_id)
+       </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.name)
+            @Html.TextBoxFor(model => model.name, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.address)
+            @Html.TextBoxFor(model => model.address, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.mobile)
+            @Html.TextBoxFor(model => model.mobile, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.email)
+            @Html.TextBoxFor(model => model.email, new { @class = "form-control", @readonly = "readonly" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.pan)
+            @Html.TextBoxFor(model => model.pan, new { @class = "form-control" })
+        </div>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+    }
+</div>

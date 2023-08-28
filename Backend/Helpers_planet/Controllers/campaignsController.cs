@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+using Helpers_planet.DTOs;
 using Helpers_planet.Models;
 
 namespace Helpers_planet.Controllers
@@ -74,17 +75,18 @@ namespace Helpers_planet.Controllers
         // POST: api/campaigns
         [Route("api/campaign")]
         [ResponseType(typeof(campaign))]
-        public IHttpActionResult Postcampaign(campaign campaign)
+        public ResponseEntity Postcampaign(campaign campaign)
         {
+            campaign.status = 1;    
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return new ResponseEntity() { status=500, message="Value Not Added" };
             }
 
             db.campaigns.Add(campaign);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = campaign.campaign_id }, campaign);
+            return new ResponseEntity() { status = 200, message = "success" };
         }
 
         // DELETE: api/campaigns/5

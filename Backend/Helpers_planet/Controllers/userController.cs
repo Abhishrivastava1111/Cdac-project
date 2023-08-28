@@ -51,16 +51,16 @@ namespace Helpers_planet.Controllers
             userDto.password = user.password;
             return userDto;
         }
-
+        [HttpPost]
         // POST api/values
-        public void Post(dynamic obj)
-        {
+        public void AddUser(dynamic obj)
+        { 
             user tempObj = new user();
-            tempObj.name = obj.firstName + " " + obj.lastName;
+            tempObj.name = obj.Fname + " " + obj.Lname;
             tempObj.email   = obj.email;
             tempObj.address = obj.address;  
-            tempObj.mobile = obj.mobileNumber;    
-            tempObj.pan = obj.Pan;
+            tempObj.mobile = obj.mobile;    
+            tempObj.pan = obj.pan;
                tempObj.password = obj.password;
            
              cdac_FinalEntities2.users.Add(tempObj);

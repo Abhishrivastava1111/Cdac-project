@@ -1,9 +1,83 @@
 ﻿@{
     ViewBag.Title = "About";
+    Layout = null; // Disable the shared layout for this view
 }
-<main aria-labelledby="title">
-    <h2 id="title">@ViewBag.Title.</h2>
-    <h3>@ViewBag.Message</h3>
 
-    <p>Use this area to provide additional information.</p>
-</main>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Helpers' Planet</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .profile-picture {
+            max-width: 200px;
+        }
+
+        .contact-list li {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .linkedin-btn {
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 18px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+            .linkedin-btn:hover {
+                background-color: white;
+            }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">@Html.ActionLink("Home", "Index", "Admin", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>About Me</h2>
+                <img src="~/Images/abhi.png" alt="Profile Picture" class="profile-picture img-fluid rounded-circle">
+                <p class="mt-4">Hi, I'm Abhi Shrivastava, the team lead of The Helpers' Planet project. I am currently pursuing the Cdac PG - Dac course, and I'm responsible for developing the admin part of the project. My team mates include Vaibhav Kale, Lokesh Sable, and Shubham Gujar, who have also provided valuable advisory support. I'm passionate about making a positive impact through technology. Feel free to connect with me on LinkedIn or reach out to me via email.</p>
+                <a href="https://www.linkedin.com/in/abhi-shrivastava-0b99601a3" class="linkedin-btn"><i class="fab fa-linkedin"></i> Connect on LinkedIn</a>
+            </div>
+            <div class="col-md-6">
+                <h2>Contact Information</h2>
+                <ul class="list-unstyled contact-list">
+                    <li><i class="fa fa-envelope"></i> <a href="mailto:abhishrivastava2407@gmail.com">abhishrivastava2407@gmail.com</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>

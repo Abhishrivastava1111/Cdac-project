@@ -47,7 +47,7 @@ const Landing = () => {
         <Route exact path="/startcampaign" component={StartCampaignForm} />
         <Route exact path="/CampaignSlider" component={CampaignSlider} />
         <Route exact path="/ImageSlider" component={ImageSlider} />
-        <ProtectedRoute exact path="/helper" component={AddingHelpervolunter} />
+        <Route exact path="/helper" component={AddingHelpervolunter} />
         <Route exact path="/login" component={LoginForm} />
         <Route exact path="/UpiAppsPage"component={UpiAppsPage}/>
         <ProtectedRoute exact path="/ViewCampaign" component={Viewcampaign} />

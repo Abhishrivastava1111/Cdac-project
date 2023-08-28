@@ -17,7 +17,7 @@ namespace AdminSide.Controllers
         // GET: Admin
         public ActionResult Index()
         {
-            TempData["userName"]= User.Identity.Name;   
+            TempData["userName"] = User.Identity.Name;
             return View();
         }
 
@@ -64,7 +64,7 @@ namespace AdminSide.Controllers
         public ActionResult EditEmp(user u)
         {
             Cdac_finalEntities db = new Cdac_finalEntities();
-            user UserToBeEdited =db.users.Find(u.user_id);
+            user UserToBeEdited = db.users.Find(u.user_id);
             UserToBeEdited.name = u.name;
             UserToBeEdited.address = u.address;
             UserToBeEdited.email = u.email;
@@ -80,7 +80,7 @@ namespace AdminSide.Controllers
             Cdac_finalEntities cdac_FinalEntities = new Cdac_finalEntities();
             user u = cdac_FinalEntities.users.Find(id);
             cdac_FinalEntities.users.Remove(u);
-             cdac_FinalEntities.SaveChanges();
+            cdac_FinalEntities.SaveChanges();
             return RedirectToAction("/ViewEmp");
         }
 
@@ -95,12 +95,41 @@ namespace AdminSide.Controllers
         public ActionResult PastCampaign()
         {
             Cdac_finalEntities db = new Cdac_finalEntities();
-            return View(db.campaigns.Where(r => r.status !=1).ToList());
+            return View(db.campaigns.Where(r => r.status != 1).ToList());
         }
 
         public ActionResult AddCampaign() {
             return RedirectToRoute("http://localhost:3000/ADLogin");
         }
+
+        public ActionResult EditProfile()
+        {
+            Cdac_finalEntities db = new Cdac_finalEntities();
+            user user = (user)db.users.Where(u => u.email == User.Identity.Name).First();
+            return View(user);
+        }
+
+        public ActionResult UpdateProfile(user updatedUser)
+        {
+            Cdac_finalEntities db = new Cdac_finalEntities();
+            user userToBeUpdated = db.users.Find(updatedUser.user_id);
+            userToBeUpdated.email = updatedUser.email;
+            userToBeUpdated.name = updatedUser.name;
+            userToBeUpdated.pan = updatedUser.pan;
+            userToBeUpdated.mobile = updatedUser.mobile;
+            userToBeUpdated.address = updatedUser.address;
+            db.SaveChanges();
+
+            return RedirectToAction("/ViewProfile");
+        }
+
+        public ActionResult ViewProfile() {
+            Cdac_finalEntities db = new Cdac_finalEntities();
+            user user = (user)db.users.Where(u => u.email == User.Identity.Name).First();
+            return View(user);
+        }
+
+         
     }
 
 

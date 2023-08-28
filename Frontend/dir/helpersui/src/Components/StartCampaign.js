@@ -62,11 +62,11 @@ const StartCampaignForm = () => {
         axios
             .post("http://localhost:57380/api/campaign", camp)
             .then(async (response) => {
-                console.log(response.data+ "bere");
+                if(response.data.message=="success")
                 await delay(2000); 
-                //nevigate.push("/Campaign");
+                window.location.href = "http://localhost:61042/";
             })
-            .catch((error) => {
+            .catch((error) => {   
                 console.log(error);
             });
     };

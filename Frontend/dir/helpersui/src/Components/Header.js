@@ -51,7 +51,7 @@ const Header = () => {
       
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto"style={{ width: '600px',marginLeft:'100px', justifyContent: 'space-evenly' }} >
-          <Nav.Link href="http://somthing">Admin Login</Nav.Link>
+          <Nav.Link href="http://localhost:61042/">Admin Login</Nav.Link>
           <Nav.Link href="/">Home</Nav.Link>
           <Nav.Link href="/helper">Be A Helper</Nav.Link>
           <Nav.Link href="/Stories">Read Sucess Stories</Nav.Link>

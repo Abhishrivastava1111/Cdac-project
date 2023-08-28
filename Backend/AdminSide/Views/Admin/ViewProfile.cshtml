@@ -1,0 +1,26 @@
+﻿@model AdminSide.Models.user
+
+@{
+    ViewBag.Title = "User Profile";
+}
+
+<div class="container">
+    <h2>User Profile</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <dl class="dl-horizontal">
+                <dt>Name:</dt>
+                <dd>@Model.name</dd>
+                <dt>Address:</dt>
+                <dd>@Model.address</dd>
+                <dt>Mobile:</dt>
+                <dd>@Model.mobile</dd>
+                <dt>Email:</dt>
+                <dd>@Model.email</dd>
+                <dt>PAN:</dt>
+                <dd>@Model.pan</dd>
+            </dl>
+            <a href="/Admin/Index" class="link-primary">Back  &laquo; </a>
+        </div>
+    </div>
+</div>
