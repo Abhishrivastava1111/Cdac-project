@@ -41,12 +41,14 @@
   <EntityType Name="role">
     <Key>
       <PropertyRef Name="Id" />
+      <PropertyRef Name="ID" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="user_id" Type="Int32" />
     <Property Name="role_id" Type="Int32" />
     <NavigationProperty Name="role_names" Relationship="Self.FK__role__role_id__70DDC3D8" FromRole="role" ToRole="role_names" />
     <NavigationProperty Name="user" Relationship="Self.FK__role__user_id__6FE99F9F" FromRole="role" ToRole="users" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
   </EntityType>
   <EntityType Name="role_names">
     <Key>

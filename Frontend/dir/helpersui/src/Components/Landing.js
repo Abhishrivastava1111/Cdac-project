@@ -7,7 +7,7 @@ import RegistrationForm from './Registration';
 import ProtectedRoute from './ProtectedRoute';
 import Viewcampaign from './volunter/Viewcampaign';
 import AddingHelpervolunter from './volunter/AddingHelperVolunter';
-import InputVerificationComponent from './OtoCheck';
+import OTPVerificationComponent from './OtoCheck';
 import Donarprofile from './Doner/Donarprofile';
 import CampaignSlider from './CampaignSlider';
 import ImageSlider from './LandingImgSlider';
@@ -16,6 +16,11 @@ import UpiAppsPage from './Payment';
 import temp from './temp';
 import ContactUs from './About';
 import Donate from './Donate';
+import SuccessStory from './SuccessStories';
+import VolunteerList from './Worker/volunteerList';
+import Layout from './Worker/Layout';
+import CampaignTable from './Worker/CampaignTable';
+
 
 
 const Landing = () => {
@@ -42,18 +47,24 @@ const Landing = () => {
        
       <Switch>
         <Route exact path="/" component={temp}/>
+        <Route exact path="/SuccessStory" component={SuccessStory}/>
         <ProtectedRoute exact path="/donate" component={Donate}/>
+
+
         <Route exact path="/ContactUs" component={ContactUs}/>
         <Route exact path="/startcampaign" component={StartCampaignForm} />
         <Route exact path="/CampaignSlider" component={CampaignSlider} />
         <Route exact path="/ImageSlider" component={ImageSlider} />
-        <Route exact path="/helper" component={AddingHelpervolunter} />
+        <Route exact path="/AddingHelpervolunter" component={AddingHelpervolunter} />
         <Route exact path="/login" component={LoginForm} />
         <Route exact path="/UpiAppsPage"component={UpiAppsPage}/>
         <ProtectedRoute exact path="/ViewCampaign" component={Viewcampaign} />
         <Route exact path="/register" component={RegistrationForm} />
-        <ProtectedRoute exact path="/InputVerificationComponent" component={InputVerificationComponent} />
-        <ProtectedRoute exact path="/Donarprofile" component={Donarprofile} />
+        <Route exact path="/OTPVerificationComponent" component={OTPVerificationComponent} />
+        <ProtectedRoute exact path="/VolunteerList" component={VolunteerList}/>
+        <ProtectedRoute exact path="/Layout" component={Layout}/>
+        <Route exact path="/Donarprofile" component={Donarprofile} />
+        <ProtectedRoute exact path="/CampaignTable" component={CampaignTable}/>
       </Switch>
 
       {login ? null : routes.key2}

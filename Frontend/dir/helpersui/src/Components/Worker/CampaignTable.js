@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './CampaignTable.css';
 import EditCampaign from './EditCampaign';
+import Layout from './Layout';
 
 const CampaignTable = () => {
   const [campaigns, setCampaigns] = useState([]);
@@ -49,6 +50,7 @@ const CampaignTable = () => {
   };
 
   return (
+    <Layout>
     <div className="campaign-table">
       <h2>Campaign Details</h2>
       <table>
@@ -92,7 +94,7 @@ const CampaignTable = () => {
         />
       )}
     </div>
-  );
+    </Layout> );
 }
 
 export default CampaignTable;

@@ -1,49 +1,116 @@
 .big-footer {
-    background-color: black;
-    color: white;
-    padding: 30px;
-    text-align: center;
-    font-size: 11px;
-  }
-  
-  .footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  
-  .contact-info {
-    flex: 1;
-    margin-bottom: 20px;
-  }
-  
-  .social-icons {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    gap: 80px;
-  }
-  
-  .social-icons img {
-    width: 60px;
-    height: 60px;
-    cursor: pointer;
-    transition: transform 0.4s;
-  }
-  
-  .social-icons img:hover {
-    transform: scale(1.5);
-  }
-  .contact-info p {
-    border: 2px solid white;
-    padding: 10px;
-    display: inline-block;
+  background-color: black;
+  color: white;
+  padding: 30px;
+  font-size: 11px;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap-reverse; /* Reverse the order to display text above icons */
+}
+
+.contact-info {
+  flex: 1;
+  margin-bottom: 20px;
+  max-width: 70%; /* Limit the width of the paragraph */
+}
+
+.social-icons {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start; /* Start icons from the left */
+  gap: 20px; /* Reduce the gap between icons */
+  align-items: flex-end; /* Align icons to the bottom */
+  margin-top: 20px; /* Add spacing between paragraph and icons */
+  margin-left:800px ; 
+}
+
+.social-icons img {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.social-icons img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px white;
+}
+
+.contact-info p {
+  padding: 10px;
+  display: inline-block;
+  width: 100%; /* Ensure text takes up full width */
 }
 
 .contact-info p img {
-   width: 800px;
-    
-    vertical-align: middle;
-    margin-right: 10px;
+  width: 700px; /* Set the image width to 300px */
+  height: auto;
+  vertical-align: middle;
+  margin-left: 20px; /* Add spacing between image and text */
+  box-shadow: 0 0 10px white;
+}
+.image-and-text {
+  display: flex;
+  transition: transform 0.4s, box-shadow 0.4s;
+  transform: scale(1.1);
+  box-shadow: 0 0 10px white;
+  align-items: center; /* Vertically center align contents */
+}
+.contact-details {
+  text-align: right;
+  margin-top: 50px;
+  margin-left:30px ;
+}
+/* Footer.css */
+/* Footer.css */
+
+/* Style for the contact-info container */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Style for the additional-sections container */
+/* Footer.css */
+
+/* Style for the contact-info container */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Style for the additional-sections container */
+.additional-sections {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+
+
+}
+
+.additional-sections > div {
+  text-align: center;
+}
+
+.additional-sections h4 {
+  font-size: 24px;
+  margin: 5px 0;
+  margin-left: 10px;
+}
+
+.additional-sections p {
+  font-size: 16px;
+  margin: 0;
+  margin-left: 10px;
+}
+
+/* Add spacing between sections */
+.contact-details {
+  margin-top: 20px;
 }

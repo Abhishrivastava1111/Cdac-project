@@ -41,7 +41,7 @@ if(formData.password != formData.confirmPassword){
 }
 // Handled form submission logic here
 try{
-   const success=  await axios.post('http://localhost:57380/user', formData)
+   const success=  await axios.post('http://localhost:57380/user/AddUser/4', formData)
   setTimeout(()=>{
     toast.success('data sent successfully',{
         position: 'top-right',

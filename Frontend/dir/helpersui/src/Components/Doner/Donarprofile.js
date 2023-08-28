@@ -4,6 +4,7 @@ import '../common.css';
 import user from "../image/user_456212.png"
 
 function Donarprofile() {
+    const storedData = window.sessionStorage.getItem('credential')
   
     const [donor, setdonor] = useState({
         name: "", address:"", email: "", mobile: "", address: "", pan: "",password:""
@@ -26,7 +27,7 @@ function Donarprofile() {
                }
         }
         helper.open("GET", 
-                    "http://localhost:57380/User/12");
+                    `http://localhost:57380/User/${storedData.user_id}`);
         helper.send();
 
     }

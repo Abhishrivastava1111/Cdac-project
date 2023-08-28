@@ -13,7 +13,7 @@ const Header = () => {
   console.log(loginStatus)
 
   const donate =()=>{
-      nevigate.push('/donate')
+      nevigate.push('/UpiAppsPage')
   }
   
   const RedirectToLogin=()=>{
@@ -54,7 +54,7 @@ const Header = () => {
           <Nav.Link href="http://localhost:61042/">Admin Login</Nav.Link>
           <Nav.Link href="/">Home</Nav.Link>
           <Nav.Link href="/helper">Be A Helper</Nav.Link>
-          <Nav.Link href="/Stories">Read Sucess Stories</Nav.Link>
+          <Nav.Link href="/SuccessStory">Read Sucess Stories</Nav.Link>
           <Nav.Link href="/ContactUs">Contact Us</Nav.Link>
           <Nav.Link href="/Scope">Our Scope</Nav.Link>
           

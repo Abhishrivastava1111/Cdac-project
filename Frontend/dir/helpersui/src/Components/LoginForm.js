@@ -9,6 +9,7 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 const LoginForm = () => {
   const history = useHistory()
   const { setIsLoggedIn } = useAuth();
+  const [isValid, setIsValid] = useState(false)
   
 
   const [formData, setFormData] = useState({
@@ -30,8 +31,8 @@ const LoginForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    const credentials = { // Move this inside the handleSubmit function
-      email: formData.email, // Use formData.email
+    const credentials = { 
+      email: formData.email, 
       password: formData.password,
       
     };
@@ -41,16 +42,18 @@ const LoginForm = () => {
       .then(response => {
         // Handle success
         debugger
-        console.log('Login successful:', response.data);
         const loginCredentials = JSON.stringify(response.data)
+        console.log('Login successful:', response.data);
+        if(response.data.status==200){
+          history.push({
+            pathname: '/OTPVerificationComponent',
+            state: { cred: response.data  }
+          });
+        }
         
-        window.sessionStorage.setItem('credential',loginCredentials)
-        setIsLoggedIn(true);
-        history.push({
-          pathname: '/InputVerificationComponent',
-          state: { isLoggedIn: true }
-        });
-        // You might want to save the token or user info from the response
+
+       
+      
 
         
       })

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import user1 from "../image/user_456212.png"
 
 function Profile() {
+  const storedData = window.sessionStorage.getItem('credential')
   const [userData, setUserData] = useState({
     user_id: 0,
     name: "",
@@ -14,7 +15,8 @@ function Profile() {
   });
 
   useEffect(() => {
-    axios.get("http://localhost:57380/user/GetOneById/1")
+
+    axios.get(`http://localhost:57380/user/GetOneById/${storedData.user_id}`)
       .then(response => {
         setUserData(response.data);
       })
@@ -66,7 +68,7 @@ function Profile() {
             readOnly
             className="form-control"
             id="user_id"
-            value={userData.user_id}
+            value={storedData.user_id}
             aria-describedby="emailHelp"
           />
         </div>

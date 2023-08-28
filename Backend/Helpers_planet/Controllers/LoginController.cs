@@ -93,6 +93,7 @@ namespace Helpers_planet.Controllers
                     responseEntity.message = "Enter the otp";
                     responseEntity.email = user.email;
                     responseEntity.user_id = user.user_id;
+                    responseEntity.role_id = (int)db.roles.Where(r => r.user_id == user.user_id).First().role_id;
                     return responseEntity;
                 }
                 

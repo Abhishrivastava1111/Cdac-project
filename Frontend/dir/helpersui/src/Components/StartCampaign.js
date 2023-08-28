@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import './StartCampaign.css';
-import Layout from './Layout';
+
 import storage from '../Firebase';
 import axios from "axios";
 import Campaign from './CampaignSlider'
 
 import { useHistory } from 'react-router-dom/cjs/react-router-dom';
+import Layout from './Worker/Layout';
 const StartCampaignForm = () => {
     const [image, setImage] = useState('');
     const [Url, setUrl] = useState('');
+    const history = useHistory();
+    const Userdata= JSON.parse(window.sessionStorage.getItem("credential"));
     const [formData, setFormData] = useState({
         title: '',
         type: '',
@@ -60,12 +63,16 @@ const StartCampaignForm = () => {
         };
     
         axios
-            .post("http://localhost:57380/api/campaign", camp)
+            .post(`http://localhost:57380/api/campaign/${Userdata.user_id}`, camp)
             .then(async (response) => {
-                if(response.data.message=="success")
+                if(response.data.message=="success"&& response.data.role_id==1){
                 await delay(2000); 
-                window.location.href = "http://localhost:61042/";
-            })
+                window.location.href = `http://localhost:61042/`;
+     }
+     else{
+            history.push('/CampaignTable')
+     }
+     })
             .catch((error) => {   
                 console.log(error);
             });

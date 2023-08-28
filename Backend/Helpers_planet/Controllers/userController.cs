@@ -2,7 +2,7 @@
 using Helpers_planet.Models;
 using System;
 using System.Collections.Generic;
-
+using System.Linq;
 using System.Web.Http;
 
 
@@ -51,21 +51,31 @@ namespace Helpers_planet.Controllers
             userDto.password = user.password;
             return userDto;
         }
-        [HttpPost]
-        // POST api/values
-        public void AddUser(dynamic obj)
+
+        [HttpPost] 
+         
+        public void AddUser(dynamic obj, int id)
         { 
+             
             user tempObj = new user();
             tempObj.name = obj.Fname + " " + obj.Lname;
             tempObj.email   = obj.email;
             tempObj.address = obj.address;  
             tempObj.mobile = obj.mobile;    
             tempObj.pan = obj.pan;
-               tempObj.password = obj.password;
+            tempObj.password = obj.password;
            
-             cdac_FinalEntities2.users.Add(tempObj);
+            cdac_FinalEntities2.users.Add(tempObj);
+
             cdac_FinalEntities2.SaveChanges();
+           int User_id = cdac_FinalEntities2.users.Where(u => u.email == tempObj.email).First().user_id;
+            role role = new role();
             
+           
+            role.user_id= User_id;
+            role.role_id = id;
+            cdac_FinalEntities2.roles.Add(role);
+            cdac_FinalEntities2.SaveChanges();
         }
 
         [HttpPut]

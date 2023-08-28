@@ -70,14 +70,14 @@ namespace Helpers_planet.Controllers
             }
 
             return StatusCode(HttpStatusCode.NoContent);
-        }
+        } 
 
         // POST: api/campaigns
-        [Route("api/campaign")]
+        [Route("api/campaign/{id}")]
         [ResponseType(typeof(campaign))]
-        public ResponseEntity Postcampaign(campaign campaign)
-        {
-            campaign.status = 1;    
+        public ResponseEntity Postcampaign(campaign campaign, int id)
+        { 
+            campaign.status = 1;     
             if (!ModelState.IsValid)
             {
                 return new ResponseEntity() { status=500, message="Value Not Added" };
@@ -85,18 +85,21 @@ namespace Helpers_planet.Controllers
 
             db.campaigns.Add(campaign);
             db.SaveChanges();
-
-            return new ResponseEntity() { status = 200, message = "success" };
+            int role_ID = (int)db.roles.Where(r => r.user_id == id).First().role_id;
+          
+            return new ResponseEntity() { status = 200, message = "success" ,role_id=role_ID };
+         
         }
-
-        // DELETE: api/campaigns/5
+        [Route("api/campaign/{id}")]
         [ResponseType(typeof(campaign))]
-        public IHttpActionResult Deletecampaign(int id)
+        // DELETE: api/campaigns/5
+        
+        public ResponseEntity Deletecampaign(int id)
         {
             campaign campaign = db.campaigns.Find(id);
             if (campaign == null)
             {
-                return NotFound();
+                return new ResponseEntity() { status=404, message="failure"};
             }
 
             db.campaigns.Remove(campaign);

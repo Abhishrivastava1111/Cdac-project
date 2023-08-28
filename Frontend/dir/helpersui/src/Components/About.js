@@ -5,80 +5,77 @@ import loki from "./image/loki.png"
 import shubham from "./image/shubham.png"
 import vaibhav from "./image/vaibhav.png"
 import abhi from "./image/abhi.png"
+import React from 'react';
+import './About.css'
+
 function ContactUs() {
-    return (
-      <div style={styles.container}>
-        <h1 style={styles.title}>Contact Us</h1>
+  return (
+    <div className="container">
+      <h1 className="title">Contact Us</h1>
+
+      <div className="contact-info">
         
-        <div >
-          <h2><p>If you have any questions or inquiries, feel free to contact us:</p></h2>
-         
-         <center><table>
-          <td>
-          <div className="contact-div">
-            <center>
-            
-              <img src={loki}width={150} height={150}></img> <br></br>
-            <img src={mail} width={50} height={50} ></img>
-            <h2><a href="https://mail.google.com" style={{ color: 'black' }} >
-            <h3>Email: lokeshsable@gmail.com</h3><br></br></a></h2>
-            <img src={call} width = {50} heigh={50}></img>
-            <p><h3>Phone: (123) 456-7890</h3></p></center>
-            </div></td>
 
-            <td>
-            <div className="contact-div">
-              <center>
-              <img src={shubham}width={150} height={150}></img> <br></br>
-            <img src={mail} width={50} height={50} ></img>
-            <h2><a href="https://mail.google.com" style={{ color: 'black' }} >
-            <h3>Email: shubhamgujar@gmail.com</h3><br></br></a></h2>
-            <img src={call} width = {50} heigh={50}></img>
-            <p><h3>Phone: (123) 456-7890</h3></p></center>
-            </div></td>
-
-
-            <td>
-            <div className="contact-div">
-              <center>
-              <img src={vaibhav}width={150} height={150}></img> <br></br>
-            <img src={mail} width={50} height={50} ></img>
-            <h2><a href="https://mail.google.com" style={{ color: 'black' }} >
-            <h3>Email: vaibhavkale@gmail.com</h3><br></br></a></h2>
-            <img src={call} width = {50} heigh={50}></img>
-            <p><h3>Phone: (123) 456-7890</h3></p></center>
-            </div></td> 
-
-
-            <td>
-            <div className="contact-div">
-              <center>
-              <img src={abhi}width={150} height={150}></img> <br></br>
-            <img src={mail} width={50} height={50} ></img>
-            <h2><a href="https://mail.google.com" style={{ color: 'black' }} >
-            <h3>Email: abhishrivastava@gmail.com</h3><br></br></a></h2>
-            <img src={call} width = {50} heigh={50}></img>
-            <p><h3>Phone: (123) 456-7890</h3></p></center>
-            </div></td>
-            </table></center>
+         <div className="contact-card">
+          <div className="contact-details">
+            <h2><b>Team Leader</b></h2>
+            <img src={abhi} alt="Abhi Shrivastava" className="profile-img" />
+            <br/>
+            <b>Abhi Shrivastava</b>
+            <div className="contact-icons">
+              <img src={mail} alt="Email" className="icon" />
+              <a href="https://mail.google.com">abhishrivastava@gmail.com</a>
+              <img src={call} alt="Phone" className="icon" />
+              <p>Phone: +918817003763</p>
+            </div>
+          </div>
         </div>
-
+        <div className="contact-card">
+          <div className="contact-details">
+            <h2><b>Full Stack Developer</b></h2>
+            <img src={vaibhav} alt="Vaibhav" className="profile-img" />
+            <br/>
+            <b>Vaibhav kale</b>
+            <div className="contact-icons">
+              <img src={mail} alt="Email" className="icon" />
+              <a href="https://mail.google.com">abhishrivastava@gmail.com</a>
+              <img src={call} alt="Phone" className="icon" />
+              <p>Phone: +918817003763</p>
+            </div>
+          </div>
+        </div>
+        <div className="contact-card">
+          <div className="contact-details">
+            <h2><b>Full Stack Developer</b></h2>
+            <img src={shubham} alt="Abhi Shrivastava" className="profile-img" />
+            <br/>
+            <b>Shubham Gujar</b>
+            <div className="contact-icons">
+              <img src={mail} alt="Email" className="icon" />
+              <a href="https://mail.google.com">abhishrivastava@gmail.com</a>
+              <img src={call} alt="Phone" className="icon" />
+              <p>Phone: +918817003763</p>
+            </div>
+          </div>
+        </div>
+        <div className="contact-card">
+          <div className="contact-details">
+            <h2><b>Full Stack Developer</b></h2>
+            <img src={loki} alt="Abhi Shrivastava" className="profile-img" />
+            <br/>
+            <b>Lokesh Sable</b>
+            <div className="contact-icons">
+              <img src={mail} alt="Email" className="icon" />
+              <a href="https://mail.google.com">abhishrivastava@gmail.com</a>
+              <img src={call} alt="Phone" className="icon" />
+              <p>Phone: +918817003763</p>
+            </div>
+          </div>
+        </div>
+       
       </div>
-    );
-  }
-  
-  const styles = {
-    container: {
-      textAlign: 'center',
-      padding: '2rem',
-    },
-    title: {
-      marginBottom: '1rem',
-    },
-    content: {
-      maxWidth: '400px',
-      margin: '0 auto',
-    },
-  };
-  
-  export default ContactUs;
+    </div>
+  );
+}
+
+export default ContactUs;

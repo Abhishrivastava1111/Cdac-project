@@ -1,29 +1,32 @@
-.floatleftdonS{
-    float: left;
-    height: 100%;
-    background:gray;
-    width: 200px;
-}
+/* volunteer.css */
 
-.floatrightdonS{
-    float: right;
-    height: 100%;
-    background:gray;
-    width: 200px;
-
-}
-.input-field {
+/* Style for the shadow box */
+.shadow-boxshubhu {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 500px;
+  }
+  
+  /* Style for input fields */
+  .input-field {
     padding: 10px;
     margin: 5px;
-    width: 300px;
+    width: 100%; /* Make the input fields expand to their container's width */
     border: 1px solid #ccc;
     border-radius: 5px;
-}
-.bottom-button1shubhu {
+  }
+  
+  /* Style for submit button */
+  .bottom-button1shubhu {
     background-color: #054a34;
     color: white;
     padding: 10px 20px;
     border: none;
     cursor: pointer;
-    margin-right: 10px; /* Adjust margin as needed */
-}
+  }
+  
+  /* Optional: Add more styles as needed */
+  
