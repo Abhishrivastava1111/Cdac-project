@@ -53,7 +53,7 @@ const Header = () => {
         <Nav className="mr-auto"style={{ width: '600px',marginLeft:'100px', justifyContent: 'space-evenly' }} >
           <Nav.Link href="http://localhost:61042/">Admin Login</Nav.Link>
           <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="/helper">Be A Helper</Nav.Link>
+          <Nav.Link href="/AddingHelpervolunterSplo">Be A Helper</Nav.Link>
           <Nav.Link href="/SuccessStory">Read Sucess Stories</Nav.Link>
           <Nav.Link href="/ContactUs">Contact Us</Nav.Link>
           <Nav.Link href="/Scope">Our Scope</Nav.Link>

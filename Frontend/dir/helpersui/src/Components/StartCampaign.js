@@ -65,6 +65,7 @@ const StartCampaignForm = () => {
         axios
             .post(`http://localhost:57380/api/campaign/${Userdata.user_id}`, camp)
             .then(async (response) => {
+              debugger
                 if(response.data.message=="success"&& response.data.role_id==1){
                 await delay(2000); 
                 window.location.href = `http://localhost:61042/`;

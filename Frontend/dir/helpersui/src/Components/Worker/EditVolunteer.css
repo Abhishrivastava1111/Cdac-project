@@ -1,0 +1,52 @@
+.edit-volunteer {
+    padding: 20px;
+  }
+  
+  .edit-volunteer h2 {
+    margin-bottom: 10px;
+  }
+  
+  .edit-volunteer form {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .edit-volunteer td {
+    padding: 10px;
+  }
+  
+  .edit-volunteer input[type="text"] {
+    width: 100%;
+    padding: 8px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+  
+  .update-button {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .cancel-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+  
+  .edit-button {
+    background-color:green;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+  }

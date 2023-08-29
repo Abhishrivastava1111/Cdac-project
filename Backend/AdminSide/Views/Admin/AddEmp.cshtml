@@ -1,0 +1,47 @@
+﻿@model AdminSide.Models.user
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add New Employee</title>
+    <style>
+        /* Your CSS styles here */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Add New Employee</h2>
+        @using (Html.BeginForm("AddEmp", "Admin", FormMethod.Post))
+        {
+            <div class="field">
+                <label>Name:</label>
+                @Html.TextBoxFor(model => model.name)
+            </div>
+            <div class="field">
+                <label>Address:</label>
+                @Html.TextBoxFor(model => model.address)
+            </div>
+            <div class="field">
+                <label>Mobile:</label>
+                @Html.TextBoxFor(model => model.mobile)
+            </div>
+            <div class="field">
+                <label>Email:</label>
+                @Html.TextBoxFor(model => model.email)
+            </div>
+            <div class="field">
+                <label>Pan:</label>
+                @Html.TextBoxFor(model => model.pan)
+            </div>
+            <div class="field">
+                <label>Password:</label>
+                @Html.TextBoxFor(model => model.password)
+            </div>
+            <button type="submit">Add Employee</button>
+        }
+
+        <a href="@Url.Action("Index", "EmployeeController")">Back to Employee List</a>
+    </div>
+</body>
+</html>

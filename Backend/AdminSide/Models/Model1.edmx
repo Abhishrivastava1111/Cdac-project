@@ -4,22 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Cdac_finalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="campaign">
-          <Key>
-            <PropertyRef Name="campaign_id" />
-          </Key>
-          <Property Name="campaign_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="title" Type="varchar" MaxLength="300" />
-          <Property Name="type" Type="varchar" MaxLength="200" />
-          <Property Name="goal" Type="varchar" MaxLength="300" />
-          <Property Name="description" Type="varchar" MaxLength="1000" />
-          <Property Name="start_date" Type="date" />
-          <Property Name="end_date" Type="date" />
-          <Property Name="status" Type="int" />
-          <Property Name="imageloc" Type="nchar" MaxLength="500" />
-          <Property Name="requiredAmount" Type="int" />
-        </EntityType>
+      <Schema Namespace="Cdac_projectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="campaign_details">
           <Key>
             <PropertyRef Name="Id" />
@@ -28,24 +13,31 @@
           <Property Name="user_id" Type="int" />
           <Property Name="campaign_id" Type="int" />
         </EntityType>
-        <EntityType Name="contribution">
+        <EntityType Name="campaigns">
+          <Key>
+            <PropertyRef Name="campaign_id" />
+          </Key>
+          <Property Name="campaign_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="300" />
+          <Property Name="type" Type="varchar" MaxLength="200" />
+          <Property Name="goal" Type="varchar" MaxLength="300" />
+          <Property Name="description" Type="varchar" MaxLength="1000" />
+          <Property Name="start_date" Type="datetime" />
+          <Property Name="end_date" Type="datetime" />
+          <Property Name="status" Type="int" />
+          <Property Name="imageloc" Type="nchar" MaxLength="500" />
+          <Property Name="requiredAmount" Type="int" />
+        </EntityType>
+        <EntityType Name="contributions">
           <Key>
             <PropertyRef Name="contribution_id" />
           </Key>
           <Property Name="contribution_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="user_id" Type="int" />
-          <Property Name="contribution" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="contribution1" Type="decimal" Precision="10" Scale="2" />
           <Property Name="vision" Type="varchar" MaxLength="100" />
           <Property Name="date" Type="datetime" />
           <Property Name="campaign_id" Type="int" />
-        </EntityType>
-        <EntityType Name="role">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="user_id" Type="int" />
-          <Property Name="role_id" Type="int" />
         </EntityType>
         <EntityType Name="role_names">
           <Key>
@@ -53,6 +45,14 @@
           </Key>
           <Property Name="role_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="role_name" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="roles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="int" />
+          <Property Name="role_id" Type="int" />
         </EntityType>
         <EntityType Name="users">
           <Key>
@@ -67,10 +67,10 @@
           <Property Name="pan" Type="varchar" MaxLength="20" />
         </EntityType>
         <Association Name="FK__campaign___campa__5DCAEF64">
-          <End Role="campaign" Type="Self.campaign" Multiplicity="0..1" />
+          <End Role="campaigns" Type="Self.campaigns" Multiplicity="0..1" />
           <End Role="campaign_details" Type="Self.campaign_details" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="campaign">
+            <Principal Role="campaigns">
               <PropertyRef Name="campaign_id" />
             </Principal>
             <Dependent Role="campaign_details">
@@ -92,49 +92,49 @@
         </Association>
         <Association Name="FK__contribut__user___3C69FB99">
           <End Role="users" Type="Self.users" Multiplicity="0..1" />
-          <End Role="contribution" Type="Self.contribution" Multiplicity="*" />
+          <End Role="contributions" Type="Self.contributions" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="users">
               <PropertyRef Name="user_id" />
             </Principal>
-            <Dependent Role="contribution">
+            <Dependent Role="contributions">
               <PropertyRef Name="user_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__role__role_id__70DDC3D8">
+        <Association Name="FK__role__role_id__2645B050">
           <End Role="role_names" Type="Self.role_names" Multiplicity="0..1" />
-          <End Role="role" Type="Self.role" Multiplicity="*" />
+          <End Role="roles" Type="Self.roles" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="role_names">
               <PropertyRef Name="role_id" />
             </Principal>
-            <Dependent Role="role">
+            <Dependent Role="roles">
               <PropertyRef Name="role_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__role__user_id__6FE99F9F">
+        <Association Name="FK__role__user_id__25518C17">
           <End Role="users" Type="Self.users" Multiplicity="0..1" />
-          <End Role="role" Type="Self.role" Multiplicity="*" />
+          <End Role="roles" Type="Self.roles" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="users">
               <PropertyRef Name="user_id" />
             </Principal>
-            <Dependent Role="role">
+            <Dependent Role="roles">
               <PropertyRef Name="user_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Cdac_finalModelStoreContainer">
-          <EntitySet Name="campaign" EntityType="Self.campaign" Schema="dbo" store:Type="Tables" />
+        <EntityContainer Name="Cdac_projectModelStoreContainer">
           <EntitySet Name="campaign_details" EntityType="Self.campaign_details" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="contribution" EntityType="Self.contribution" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="role" EntityType="Self.role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="campaigns" EntityType="Self.campaigns" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="contributions" EntityType="Self.contributions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="role_names" EntityType="Self.role_names" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="roles" EntityType="Self.roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__campaign___campa__5DCAEF64" Association="Self.FK__campaign___campa__5DCAEF64">
-            <End Role="campaign" EntitySet="campaign" />
+            <End Role="campaigns" EntitySet="campaigns" />
             <End Role="campaign_details" EntitySet="campaign_details" />
           </AssociationSet>
           <AssociationSet Name="FK__campaign___user___5CD6CB2B" Association="Self.FK__campaign___user___5CD6CB2B">
@@ -143,22 +143,32 @@
           </AssociationSet>
           <AssociationSet Name="FK__contribut__user___3C69FB99" Association="Self.FK__contribut__user___3C69FB99">
             <End Role="users" EntitySet="users" />
-            <End Role="contribution" EntitySet="contribution" />
+            <End Role="contributions" EntitySet="contributions" />
           </AssociationSet>
-          <AssociationSet Name="FK__role__role_id__70DDC3D8" Association="Self.FK__role__role_id__70DDC3D8">
+          <AssociationSet Name="FK__role__role_id__2645B050" Association="Self.FK__role__role_id__2645B050">
             <End Role="role_names" EntitySet="role_names" />
-            <End Role="role" EntitySet="role" />
+            <End Role="roles" EntitySet="roles" />
           </AssociationSet>
-          <AssociationSet Name="FK__role__user_id__6FE99F9F" Association="Self.FK__role__user_id__6FE99F9F">
+          <AssociationSet Name="FK__role__user_id__25518C17" Association="Self.FK__role__user_id__25518C17">
             <End Role="users" EntitySet="users" />
-            <End Role="role" EntitySet="role" />
+            <End Role="roles" EntitySet="roles" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Cdac_finalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="Cdac_projectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="campaign_details">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="user_id" Type="Int32" />
+          <Property Name="campaign_id" Type="Int32" />
+          <NavigationProperty Name="campaign" Relationship="Self.FK__campaign___campa__5DCAEF64" FromRole="campaign_details" ToRole="campaigns" />
+          <NavigationProperty Name="user" Relationship="Self.FK__campaign___user___5CD6CB2B" FromRole="campaign_details" ToRole="users" />
+        </EntityType>
         <EntityType Name="campaign">
           <Key>
             <PropertyRef Name="campaign_id" />
@@ -168,22 +178,12 @@
           <Property Name="type" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="goal" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
           <Property Name="description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
-          <Property Name="start_date" Type="DateTime" Precision="0" />
-          <Property Name="end_date" Type="DateTime" Precision="0" />
+          <Property Name="start_date" Type="DateTime" Precision="3" />
+          <Property Name="end_date" Type="DateTime" Precision="3" />
           <Property Name="status" Type="Int32" />
           <Property Name="imageloc" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
           <Property Name="requiredAmount" Type="Int32" />
-          <NavigationProperty Name="campaign_details" Relationship="Self.FK__campaign___campa__5DCAEF64" FromRole="campaign" ToRole="campaign_details" />
-        </EntityType>
-        <EntityType Name="campaign_details">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="user_id" Type="Int32" />
-          <Property Name="campaign_id" Type="Int32" />
-          <NavigationProperty Name="campaign" Relationship="Self.FK__campaign___campa__5DCAEF64" FromRole="campaign_details" ToRole="campaign" />
-          <NavigationProperty Name="user" Relationship="Self.FK__campaign___user___5CD6CB2B" FromRole="campaign_details" ToRole="users" />
+          <NavigationProperty Name="campaign_details" Relationship="Self.FK__campaign___campa__5DCAEF64" FromRole="campaigns" ToRole="campaign_details" />
         </EntityType>
         <EntityType Name="contribution">
           <Key>
@@ -195,17 +195,7 @@
           <Property Name="vision" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="date" Type="DateTime" Precision="3" />
           <Property Name="campaign_id" Type="Int32" />
-          <NavigationProperty Name="user" Relationship="Self.FK__contribut__user___3C69FB99" FromRole="contribution" ToRole="users" />
-        </EntityType>
-        <EntityType Name="role">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="user_id" Type="Int32" />
-          <Property Name="role_id" Type="Int32" />
-          <NavigationProperty Name="role_names" Relationship="Self.FK__role__role_id__70DDC3D8" FromRole="role" ToRole="role_names" />
-          <NavigationProperty Name="user" Relationship="Self.FK__role__user_id__6FE99F9F" FromRole="role" ToRole="users" />
+          <NavigationProperty Name="user" Relationship="Self.FK__contribut__user___3C69FB99" FromRole="contributions" ToRole="users" />
         </EntityType>
         <EntityType Name="role_names">
           <Key>
@@ -213,7 +203,17 @@
           </Key>
           <Property Name="role_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="role_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="roles" Relationship="Self.FK__role__role_id__70DDC3D8" FromRole="role_names" ToRole="role" />
+          <NavigationProperty Name="roles" Relationship="Self.FK__role__role_id__2645B050" FromRole="role_names" ToRole="roles" />
+        </EntityType>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" />
+          <Property Name="role_id" Type="Int32" />
+          <NavigationProperty Name="role_names" Relationship="Self.FK__role__role_id__2645B050" FromRole="roles" ToRole="role_names" />
+          <NavigationProperty Name="user" Relationship="Self.FK__role__user_id__25518C17" FromRole="roles" ToRole="users" />
         </EntityType>
         <EntityType Name="user">
           <Key>
@@ -227,14 +227,14 @@
           <Property Name="password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="pan" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="campaign_details" Relationship="Self.FK__campaign___user___5CD6CB2B" FromRole="users" ToRole="campaign_details" />
-          <NavigationProperty Name="contributions" Relationship="Self.FK__contribut__user___3C69FB99" FromRole="users" ToRole="contribution" />
-          <NavigationProperty Name="roles" Relationship="Self.FK__role__user_id__6FE99F9F" FromRole="users" ToRole="role" />
+          <NavigationProperty Name="contributions" Relationship="Self.FK__contribut__user___3C69FB99" FromRole="users" ToRole="contributions" />
+          <NavigationProperty Name="roles" Relationship="Self.FK__role__user_id__25518C17" FromRole="users" ToRole="roles" />
         </EntityType>
         <Association Name="FK__campaign___campa__5DCAEF64">
-          <End Role="campaign" Type="Self.campaign" Multiplicity="0..1" />
+          <End Role="campaigns" Type="Self.campaign" Multiplicity="0..1" />
           <End Role="campaign_details" Type="Self.campaign_details" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="campaign">
+            <Principal Role="campaigns">
               <PropertyRef Name="campaign_id" />
             </Principal>
             <Dependent Role="campaign_details">
@@ -256,49 +256,49 @@
         </Association>
         <Association Name="FK__contribut__user___3C69FB99">
           <End Role="users" Type="Self.user" Multiplicity="0..1" />
-          <End Role="contribution" Type="Self.contribution" Multiplicity="*" />
+          <End Role="contributions" Type="Self.contribution" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="users">
               <PropertyRef Name="user_id" />
             </Principal>
-            <Dependent Role="contribution">
+            <Dependent Role="contributions">
               <PropertyRef Name="user_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__role__role_id__70DDC3D8">
+        <Association Name="FK__role__role_id__2645B050">
           <End Role="role_names" Type="Self.role_names" Multiplicity="0..1" />
-          <End Role="role" Type="Self.role" Multiplicity="*" />
+          <End Role="roles" Type="Self.role" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="role_names">
               <PropertyRef Name="role_id" />
             </Principal>
-            <Dependent Role="role">
+            <Dependent Role="roles">
               <PropertyRef Name="role_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__role__user_id__6FE99F9F">
+        <Association Name="FK__role__user_id__25518C17">
           <End Role="users" Type="Self.user" Multiplicity="0..1" />
-          <End Role="role" Type="Self.role" Multiplicity="*" />
+          <End Role="roles" Type="Self.role" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="users">
               <PropertyRef Name="user_id" />
             </Principal>
-            <Dependent Role="role">
+            <Dependent Role="roles">
               <PropertyRef Name="user_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Cdac_finalEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="campaigns" EntityType="Self.campaign" />
+        <EntityContainer Name="Cdac_projectEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="campaign_details" EntityType="Self.campaign_details" />
+          <EntitySet Name="campaigns" EntityType="Self.campaign" />
           <EntitySet Name="contributions" EntityType="Self.contribution" />
-          <EntitySet Name="roles" EntityType="Self.role" />
           <EntitySet Name="role_names" EntityType="Self.role_names" />
+          <EntitySet Name="roles" EntityType="Self.role" />
           <EntitySet Name="users" EntityType="Self.user" />
           <AssociationSet Name="FK__campaign___campa__5DCAEF64" Association="Self.FK__campaign___campa__5DCAEF64">
-            <End Role="campaign" EntitySet="campaigns" />
+            <End Role="campaigns" EntitySet="campaigns" />
             <End Role="campaign_details" EntitySet="campaign_details" />
           </AssociationSet>
           <AssociationSet Name="FK__campaign___user___5CD6CB2B" Association="Self.FK__campaign___user___5CD6CB2B">
@@ -307,15 +307,15 @@
           </AssociationSet>
           <AssociationSet Name="FK__contribut__user___3C69FB99" Association="Self.FK__contribut__user___3C69FB99">
             <End Role="users" EntitySet="users" />
-            <End Role="contribution" EntitySet="contributions" />
+            <End Role="contributions" EntitySet="contributions" />
           </AssociationSet>
-          <AssociationSet Name="FK__role__role_id__70DDC3D8" Association="Self.FK__role__role_id__70DDC3D8">
+          <AssociationSet Name="FK__role__role_id__2645B050" Association="Self.FK__role__role_id__2645B050">
             <End Role="role_names" EntitySet="role_names" />
-            <End Role="role" EntitySet="roles" />
+            <End Role="roles" EntitySet="roles" />
           </AssociationSet>
-          <AssociationSet Name="FK__role__user_id__6FE99F9F" Association="Self.FK__role__user_id__6FE99F9F">
+          <AssociationSet Name="FK__role__user_id__25518C17" Association="Self.FK__role__user_id__25518C17">
             <End Role="users" EntitySet="users" />
-            <End Role="role" EntitySet="roles" />
+            <End Role="roles" EntitySet="roles" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -323,10 +323,19 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Cdac_finalModelStoreContainer" CdmEntityContainer="Cdac_finalEntities">
+        <EntityContainerMapping StorageEntityContainer="Cdac_projectModelStoreContainer" CdmEntityContainer="Cdac_projectEntities">
+          <EntitySetMapping Name="campaign_details">
+            <EntityTypeMapping TypeName="Cdac_projectModel.campaign_details">
+              <MappingFragment StoreEntitySet="campaign_details">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="campaign_id" ColumnName="campaign_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="campaigns">
-            <EntityTypeMapping TypeName="Cdac_finalModel.campaign">
-              <MappingFragment StoreEntitySet="campaign">
+            <EntityTypeMapping TypeName="Cdac_projectModel.campaign">
+              <MappingFragment StoreEntitySet="campaigns">
                 <ScalarProperty Name="campaign_id" ColumnName="campaign_id" />
                 <ScalarProperty Name="title" ColumnName="title" />
                 <ScalarProperty Name="type" ColumnName="type" />
@@ -340,46 +349,37 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="campaign_details">
-            <EntityTypeMapping TypeName="Cdac_finalModel.campaign_details">
-              <MappingFragment StoreEntitySet="campaign_details">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="user_id" ColumnName="user_id" />
-                <ScalarProperty Name="campaign_id" ColumnName="campaign_id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="contributions">
-            <EntityTypeMapping TypeName="Cdac_finalModel.contribution">
-              <MappingFragment StoreEntitySet="contribution">
+            <EntityTypeMapping TypeName="Cdac_projectModel.contribution">
+              <MappingFragment StoreEntitySet="contributions">
                 <ScalarProperty Name="contribution_id" ColumnName="contribution_id" />
                 <ScalarProperty Name="user_id" ColumnName="user_id" />
-                <ScalarProperty Name="contribution1" ColumnName="contribution" />
+                <ScalarProperty Name="contribution1" ColumnName="contribution1" />
                 <ScalarProperty Name="vision" ColumnName="vision" />
                 <ScalarProperty Name="date" ColumnName="date" />
                 <ScalarProperty Name="campaign_id" ColumnName="campaign_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="roles">
-            <EntityTypeMapping TypeName="Cdac_finalModel.role">
-              <MappingFragment StoreEntitySet="role">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="user_id" ColumnName="user_id" />
-                <ScalarProperty Name="role_id" ColumnName="role_id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="role_names">
-            <EntityTypeMapping TypeName="Cdac_finalModel.role_names">
+            <EntityTypeMapping TypeName="Cdac_projectModel.role_names">
               <MappingFragment StoreEntitySet="role_names">
                 <ScalarProperty Name="role_id" ColumnName="role_id" />
                 <ScalarProperty Name="role_name" ColumnName="role_name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="roles">
+            <EntityTypeMapping TypeName="Cdac_projectModel.role">
+              <MappingFragment StoreEntitySet="roles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="users">
-            <EntityTypeMapping TypeName="Cdac_finalModel.user">
+            <EntityTypeMapping TypeName="Cdac_projectModel.user">
               <MappingFragment StoreEntitySet="users">
                 <ScalarProperty Name="user_id" ColumnName="user_id" />
                 <ScalarProperty Name="name" ColumnName="name" />

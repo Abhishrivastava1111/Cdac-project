@@ -30,9 +30,9 @@ namespace AdminSide.Controllers
         {
             if (ReturnUrl == "")
                 ReturnUrl = ReturnUrl = "/Admin/Index";
-            Cdac_finalEntities db = new Cdac_finalEntities();
-            var user1 = db.users.FirstOrDefault(u => u.email == user.UserName && u.password == user.password);
-            if (user != null)
+            Cdac_projectEntities db = new Cdac_projectEntities();
+            var user1 = db.users.Where(u=> u.email==user.UserName&& u.password==user.password).First(); 
+            if (user1 != null)
             {
                 var isAdmin = db.roles.Any(r => r.user_id == user1.user_id && r.role_id == 1);
                 if (isAdmin)

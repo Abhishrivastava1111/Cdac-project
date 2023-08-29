@@ -51,10 +51,10 @@ const CampaignTable = () => {
 
   return (
     <Layout>
-    <div className="campaign-table">
-      <h2>Campaign Details</h2>
-      <table>
-        <thead>
+      <center><h2>Campaign Details</h2></center>
+      <div className="campaign-table">
+        <table style={{width:'100%', maxWidth:'50%'}} >
+          <thead>
           <tr>
            <th>Campaign ID</th>
             <th>Title</th>
@@ -85,16 +85,17 @@ const CampaignTable = () => {
             </tr>
           ))}
         </tbody>
-      </table>
-      {editingCampaign && (
-        <EditCampaign
-          campaign={editingCampaign}
-          onClose={handleEditClose}
-          onUpdate={handleUpdateCampaign}
-        />
-      )}
-    </div>
-    </Layout> );
+        </table>
+        {editingCampaign && (
+          <EditCampaign
+            campaign={editingCampaign}
+            onClose={handleEditClose}
+            onUpdate={handleUpdateCampaign}
+          />
+        )}
+      </div>
+    </Layout>
+  );
 }
 
 export default CampaignTable;

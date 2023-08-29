@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="600f81d3e89d48bd8d62169d3207d62a" Name="Diagram1">
+        <EntityTypeShape EntityType="Cdac_projectModel.campaign_details" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cdac_projectModel.campaign" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cdac_projectModel.contribution" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cdac_projectModel.role_names" Width="1.5" PointX="3.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cdac_projectModel.role" Width="1.5" PointX="6" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cdac_projectModel.user" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <AssociationConnector Association="Cdac_projectModel.FK__campaign___campa__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="Cdac_projectModel.FK__campaign___user___5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="Cdac_projectModel.FK__contribut__user___3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="Cdac_projectModel.FK__role__role_id__2645B050" ManuallyRouted="false" />
+        <AssociationConnector Association="Cdac_projectModel.FK__role__user_id__25518C17" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

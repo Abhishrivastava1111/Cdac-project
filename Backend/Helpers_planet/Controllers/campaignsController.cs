@@ -37,8 +37,10 @@ namespace Helpers_planet.Controllers
             return Ok(campaign);
         }
 
-         
+
         [HttpPut]
+        [Route("campaigns/editCampaign/{id}")]
+        [ResponseType(typeof(campaign))]
         public IHttpActionResult editCampaign(int id, campaign campaign)
         { 
             if (!ModelState.IsValid)
@@ -90,7 +92,7 @@ namespace Helpers_planet.Controllers
             return new ResponseEntity() { status = 200, message = "success" ,role_id=role_ID };
          
         }
-        [Route("api/campaign/{id}")]
+        [Route("campaign/{id}")]
         [ResponseType(typeof(campaign))]
         // DELETE: api/campaigns/5
         
@@ -105,7 +107,7 @@ namespace Helpers_planet.Controllers
             db.campaigns.Remove(campaign);
             db.SaveChanges();
 
-            return Ok(campaign);
+            return new ResponseEntity() { status = 200, message = "success" };
         }
 
         protected override void Dispose(bool disposing)

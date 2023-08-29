@@ -1,17 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './volunteerList.css'; 
-import { Link } from 'react-router-dom'; 
+
 import Layout from './Layout';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 const VolunteerList = () => {
   const [volunteers, setVolunteers] = useState([]);
-
+  const history = useHistory()
   useEffect(() => {
     fetchVolunteers();
   }, []);
 
+  const handleEdit=(x)=>{
+    history.push({
+        pathname: '/EditVolunteer',
+        state: { value: x  }
+      });
+  }
+
+
+
   const fetchVolunteers = () => {
-    axios.get('http://localhost:57380/User')
+    axios.get('http://localhost:57380/user/GetAll')
       .then(response => {
         setVolunteers(response.data);
       })
@@ -38,6 +48,7 @@ const VolunteerList = () => {
 
   return (
     <Layout>
+    
     <div className="volunteer-list">
       <table>
         <thead>
@@ -46,8 +57,7 @@ const VolunteerList = () => {
             <th>Address</th>
             <th>Mobile</th>
             <th>Email</th>
-            <th>Password</th>
-            <th>PAN</th>
+             <th>PAN</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -58,10 +68,9 @@ const VolunteerList = () => {
               <td>{volunteer.address}</td>
               <td>{volunteer.mobile}</td>
               <td>{volunteer.email}</td>
-              <td>{volunteer.password}</td>
               <td>{volunteer.pan}</td>
               <td>
-                <Link to={`/updateprofile`} className="edit-button">Edit</Link>
+              <button className="edit-button" onClick={() => handleEdit(volunteer.user_id)}>Edit</button>
                 <button className="remove-button" onClick={() => handleRemove(volunteer.user_id)}>Remove</button>
               </td>
             </tr>
@@ -69,7 +78,7 @@ const VolunteerList = () => {
         </tbody>
       </table>
     </div>
-    </Layout>);
+     </Layout>);
 };
 
 export default VolunteerList;

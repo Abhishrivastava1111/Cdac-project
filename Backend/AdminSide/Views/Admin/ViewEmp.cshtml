@@ -5,7 +5,9 @@
 }
 
 <h2>Worker List</h2>
+<a href="/Admin/AddEmp" class="btn btn-outline-primary">Add Worker</a>
 <table class="table">
+   
     <thead>
         <tr>
             <th>Name</th>
@@ -24,9 +26,9 @@
                 <td>@worker.mobile</td>
                 <td>@worker.email</td>
                 <td>
-                    <a href="/Admin/EditEmp/@worker.user_id" class="btn btn-outline-success">Edit</a>
+                    <a href="/Admin/EditEmp/@worker.user_id" class="btn btn-outline-success">Edit &plusmn;</a>
                     <br />
-                    <a href="/Admin/DelEmp/@worker.user_id" class="btn btn-outline-danger">Delete</a>
+                    <a href="/Admin/DelEmp/@worker.user_id" class="btn btn-outline-danger">Delete </a>
                 </td>
             </tr>
         }

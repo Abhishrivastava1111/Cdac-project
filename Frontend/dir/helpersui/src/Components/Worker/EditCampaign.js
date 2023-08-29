@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './editCampaign.css';
 
+
 const EditCampaign = ({ campaign, onClose, onUpdate }) => {
     const [editedCampaign, setEditedCampaign] = useState({ ...campaign });
     const [updateSuccess, setUpdateSuccess] = useState(false); 
@@ -22,6 +23,7 @@ const EditCampaign = ({ campaign, onClose, onUpdate }) => {
       .then(response => {
         if (response.status === 200) {
           onUpdate(editedCampaign);
+          
           onClose();
         }
       })

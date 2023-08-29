@@ -34,7 +34,7 @@ const OTPVerificationComponent = (prop) => {
         if(prop.location.state.cred.role_id==3){
           window.sessionStorage.setItem("credential",forsetup)
           history.push({
-            pathname:'/Donarprofile',
+            pathname:'/DonarLayout',
             state:{isLoggedIn:true}
           })
         }

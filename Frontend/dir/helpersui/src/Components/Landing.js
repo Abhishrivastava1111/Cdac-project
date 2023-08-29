@@ -20,6 +20,9 @@ import SuccessStory from './SuccessStories';
 import VolunteerList from './Worker/volunteerList';
 import Layout from './Worker/Layout';
 import CampaignTable from './Worker/CampaignTable';
+import EditVolunteer from './Worker/EditVolunteer';
+import DonarLayout from './Doner/DonarLayout';
+import AddingHelpervolunterSplo from './volunter/AddHelper';
 
 
 
@@ -50,18 +53,20 @@ const Landing = () => {
         <Route exact path="/SuccessStory" component={SuccessStory}/>
         <ProtectedRoute exact path="/donate" component={Donate}/>
 
-
+        <ProtectedRoute exact path="/DonarLayout" component={DonarLayout}/>
         <Route exact path="/ContactUs" component={ContactUs}/>
         <Route exact path="/startcampaign" component={StartCampaignForm} />
         <Route exact path="/CampaignSlider" component={CampaignSlider} />
         <Route exact path="/ImageSlider" component={ImageSlider} />
-        <Route exact path="/AddingHelpervolunter" component={AddingHelpervolunter} />
+        <ProtectedRoute exact path="/AddingHelpervolunter" component={AddingHelpervolunter} />
+        <Route exact path="/AddingHelpervolunterSplo" component={AddingHelpervolunterSplo} />
         <Route exact path="/login" component={LoginForm} />
         <Route exact path="/UpiAppsPage"component={UpiAppsPage}/>
         <ProtectedRoute exact path="/ViewCampaign" component={Viewcampaign} />
         <Route exact path="/register" component={RegistrationForm} />
         <Route exact path="/OTPVerificationComponent" component={OTPVerificationComponent} />
         <ProtectedRoute exact path="/VolunteerList" component={VolunteerList}/>
+        <ProtectedRoute exact path="/EditVolunteer" component={EditVolunteer}/>
         <ProtectedRoute exact path="/Layout" component={Layout}/>
         <Route exact path="/Donarprofile" component={Donarprofile} />
         <ProtectedRoute exact path="/CampaignTable" component={CampaignTable}/>

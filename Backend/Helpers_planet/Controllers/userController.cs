@@ -17,7 +17,7 @@ namespace Helpers_planet.Controllers
         public List<UserDto> GetAll()
         {
             List<UserDto> users = new List<UserDto>();
-            foreach (user user in cdac_FinalEntities2.users)
+            foreach (user user in cdac_FinalEntities2.users.Where(u=>u.user_id==4))
             {
                 UserDto userDto = new UserDto();
                 userDto.user_id = user.user_id;
@@ -25,8 +25,7 @@ namespace Helpers_planet.Controllers
                 userDto.email = user.email; 
                 userDto.address = user.address; 
                 userDto.mobile = user.mobile;   
-                userDto.pan  = user.pan;
-                userDto.password = user.password;   
+                
 
                 users.Add(userDto); 
 
@@ -79,17 +78,17 @@ namespace Helpers_planet.Controllers
         }
 
         [HttpPut]
-        public void Update(user u)
+        public void Update(user u, int id)
         {
             Cdac_finalEntities2 cdac = new Cdac_finalEntities2();
             
-           user userToBeUpdated = cdac.users.Find(u.user_id);
+           user userToBeUpdated = cdac.users.Find(id);
             userToBeUpdated.name  = u.name; 
             userToBeUpdated.email = u.email;
-            userToBeUpdated.password = u.password;
+            
             userToBeUpdated.address = u.address;
             userToBeUpdated.mobile = u.mobile;
-            userToBeUpdated.pan = u.pan;    
+             
 
             cdac.SaveChanges();
         }

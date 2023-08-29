@@ -13,10 +13,10 @@ namespace AdminSide.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Cdac_finalEntities : DbContext
+    public partial class Cdac_projectEntities : DbContext
     {
-        public Cdac_finalEntities()
-            : base("name=Cdac_finalEntities")
+        public Cdac_projectEntities()
+            : base("name=Cdac_projectEntities")
         {
         }
     
@@ -25,11 +25,11 @@ namespace AdminSide.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<campaign> campaigns { get; set; }
         public virtual DbSet<campaign_details> campaign_details { get; set; }
+        public virtual DbSet<campaign> campaigns { get; set; }
         public virtual DbSet<contribution> contributions { get; set; }
-        public virtual DbSet<role> roles { get; set; }
         public virtual DbSet<role_names> role_names { get; set; }
+        public virtual DbSet<role> roles { get; set; }
         public virtual DbSet<user> users { get; set; }
     }
 }
